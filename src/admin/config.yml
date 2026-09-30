@@ -1,0 +1,187 @@
+# Decap CMS: beheer van de website via /admin/
+# De inhoud staat in de GitHub-repo hieronder; wijzigingen via het CMS worden daar commits.
+backend:
+  name: github
+  repo: stanleyraafs/ademwerk
+  branch: main
+  commit_messages:
+    create: "Nieuw: {{collection}} {{slug}}"
+    update: "Bijgewerkt: {{collection}} {{slug}}"
+    delete: "Verwijderd: {{collection}} {{slug}}"
+    uploadMedia: "Foto geupload: {{path}}"
+    deleteMedia: "Foto verwijderd: {{path}}"
+
+# Lokaal bewerken zonder inloggen: `npx decap-server` naast `npm run dev`
+local_backend: true
+
+locale: nl
+site_url: https://www.ademwerkstanleyraas.nl
+display_url: https://www.ademwerkstanleyraas.nl
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: aanbod
+    label: Aanbod
+    label_singular: Dienst
+    description: De diensten op de site. De volgorde bepaal je met het veld Volgorde.
+    folder: src/aanbod
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    summary: "{{volgorde}}. {{title}} ({{prijs}})"
+    sortable_fields: [volgorde, title]
+    fields:
+      - { label: Naam, name: title, widget: string }
+      - { label: Volgorde, name: volgorde, widget: number, value_type: int, default: 9 }
+      - { label: Korte omschrijving (op de kaart), name: kort, widget: text }
+      - { label: Prijs, name: prijs, widget: string, hint: "Bijv. €150 per uur of Op aanvraag" }
+      - { label: Toelichting bij prijs, name: prijsNotitie, widget: string, hint: "Bijv. inclusief btw · contant te voldoen na afloop" }
+      - { label: Duur, name: duur, widget: string, required: false }
+      - { label: Waar, name: waar, widget: string, required: false }
+      - { label: Foto, name: afbeelding, widget: image }
+      - { label: Welkomsttekst, name: body, widget: markdown, buttons: [bold, italic, link, bulleted-list] }
+      - { label: "Herken je dit? (punten)", name: herken, widget: list, field: { label: Punt, name: punt, widget: string } }
+      - { label: Voor wie, name: voorWie, widget: text }
+      - label: Zo verloopt het
+        name: verloop
+        widget: list
+        summary: "{{fields.titel}}"
+        fields:
+          - { label: Titel, name: titel, widget: string }
+          - { label: Tekst, name: tekst, widget: text }
+      - { label: Wat krijg je (punten), name: watKrijgJe, widget: list, field: { label: Punt, name: punt, widget: string } }
+      - { label: "SEO: paginatitel", name: seoTitel, widget: string, required: false, hint: "Titel in Google. Liefst met plaatsnaam, max. ± 60 tekens." }
+      - { label: "SEO: omschrijving", name: description, widget: text, required: false, hint: "Tekst onder de titel in Google, ± 150 tekens." }
+
+  - name: paginas
+    label: Pagina's
+    files:
+      - name: ademwerk
+        label: Wat is ademwerk
+        file: src/ademwerk.md
+        fields: &pagina
+          - { label: Layout, name: layout, widget: hidden, default: page.njk }
+          - { label: Adres (URL), name: permalink, widget: hidden }
+          - { label: Titel, name: title, widget: string }
+          - { label: Grote kop (optioneel), name: kop, widget: string, required: false }
+          - { label: Naam in kruimelpad, name: kruimel, widget: string, required: false }
+          - { label: Bovenregel, name: boventitel, widget: string, required: false }
+          - { label: Intro, name: intro, widget: text }
+          - { label: Achtergrondfoto bovenaan, name: heroAfbeelding, widget: image, required: false }
+          - { label: "SEO: paginatitel", name: seoTitel, widget: string, required: false }
+          - { label: "SEO: omschrijving", name: description, widget: text, required: false }
+          - { label: Inhoud, name: body, widget: markdown }
+      - name: over
+        label: Over Stanley
+        file: src/over-stanley.md
+        fields: *pagina
+
+  - name: instellingen
+    label: Instellingen & homepage
+    editor: { preview: false }
+    files:
+      - name: site
+        label: Contactgegevens & algemeen
+        file: src/_data/site.json
+        fields:
+          - { label: Bedrijfsnaam, name: naam, widget: string }
+          - { label: Naam coach, name: coach, widget: string }
+          - { label: Functie, name: rol, widget: string }
+          - { label: Websiteadres, name: url, widget: string, hint: "Zonder / aan het eind, bijv. https://www.ademwerkstanleyraas.nl" }
+          - { label: "SEO: standaard omschrijving", name: omschrijving, widget: text }
+          - { label: Telefoon, name: telefoon, widget: string }
+          - { label: E-mail, name: email, widget: string, required: false }
+          - { label: Straat en huisnummer, name: adres, widget: string }
+          - { label: Postcode, name: postcode, widget: string, required: false }
+          - { label: Plaats, name: plaats, widget: string }
+          - { label: Werkgebied, name: regio, widget: string }
+          - { label: Tarief, name: tarief, widget: string }
+          - { label: Btw-vermelding, name: btw, widget: string }
+          - { label: Betaaltekst, name: betalen, widget: text, hint: "Staat overal waar het over betalen gaat." }
+          - { label: Logo (optioneel), name: logo, widget: image, required: false, hint: "Leeg laten = tekstlogo met long-icoon." }
+          - { label: Hero-foto (liggend), name: heroFoto, widget: image }
+          - { label: Hero-foto mobiel (staand), name: heroFotoMobiel, widget: image, required: false }
+          - { label: Bladerfoto (achtergrond donkere blokken), name: bladerFoto, widget: image }
+          - { label: Deelafbeelding social media (optioneel), name: ogAfbeelding, widget: image, required: false }
+          - { label: Instagram-link, name: instagram, widget: string, required: false }
+          - { label: Facebook-link, name: facebook, widget: string, required: false }
+          - { label: LinkedIn-link, name: linkedin, widget: string, required: false }
+      - name: home
+        label: Homepage
+        file: src/_data/home.json
+        fields:
+          - { label: "SEO: paginatitel", name: seoTitel, widget: string }
+          - label: Bovenaan (hero)
+            name: hero
+            widget: object
+            fields:
+              - { label: Bovenregel, name: boventitel, widget: string }
+              - { label: "Kop (de 2e regel wordt groen; gebruik Enter)", name: titel, widget: text }
+              - { label: Tekst, name: tekst, widget: text }
+              - { label: Knoptekst, name: knop, widget: string }
+          - label: Herken je dit?
+            name: herkenning
+            widget: object
+            fields:
+              - { label: Titel, name: titel, widget: string }
+              - { label: Punten, name: punten, widget: list, field: { label: Punt, name: punt, widget: string } }
+              - { label: Slotzin, name: slot, widget: text }
+          - label: Waarom een resetcoach
+            name: reset
+            widget: object
+            fields:
+              - { label: Titel, name: titel, widget: string }
+              - { label: Tekst, name: tekst, widget: markdown, buttons: [bold, italic] }
+              - label: Pijlers
+                name: pijlers
+                widget: list
+                summary: "{{fields.titel}}"
+                fields:
+                  - { label: Titel, name: titel, widget: string }
+                  - { label: Tekst, name: tekst, widget: text }
+          - label: Feit (groot getal)
+            name: feit
+            widget: object
+            fields:
+              - { label: Getal, name: getal, widget: string }
+              - { label: Titel, name: titel, widget: string }
+              - { label: Tekst, name: tekst, widget: text }
+          - label: Zo werkt het
+            name: stappen
+            widget: object
+            fields:
+              - { label: Titel, name: titel, widget: string }
+              - label: Stappen
+                name: items
+                widget: list
+                summary: "{{fields.titel}}"
+                fields:
+                  - { label: Titel, name: titel, widget: string }
+                  - { label: Tekst, name: tekst, widget: text }
+          - label: Over mij
+            name: over
+            widget: object
+            fields:
+              - { label: Titel, name: titel, widget: string }
+              - { label: Tekst, name: tekst, widget: text }
+              - { label: Knoptekst, name: knop, widget: string }
+              - { label: Foto van Stanley, name: foto, widget: image, required: false }
+          - label: Praktisch
+            name: praktisch
+            widget: object
+            fields:
+              - { label: Titel, name: titel, widget: string }
+          - label: Veelgestelde vragen
+            name: faq
+            widget: list
+            summary: "{{fields.vraag}}"
+            fields:
+              - { label: Vraag, name: vraag, widget: string }
+              - { label: Antwoord, name: antwoord, widget: text }
+          - label: Afsluitende oproep
+            name: cta
+            widget: object
+            fields:
+              - { label: Titel, name: titel, widget: string }
+              - { label: Tekst, name: tekst, widget: text }

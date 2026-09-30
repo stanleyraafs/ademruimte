@@ -1,0 +1,197 @@
+---
+layout: base.njk
+bodyClass: home
+eleventyComputed:
+  seoTitel: "{{ home.seoTitel | safe }}"
+---
+{%- from "icons.njk" import icon -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{%- for item in home.faq %}
+  {"@type":"Question","name":{{ item.vraag | dump | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ item.antwoord | striptags | dump | safe }}}}{% if not loop.last %},{% endif %}
+{%- endfor %}
+]}
+</script>
+
+<section class="hero on-dark" aria-labelledby="hero-titel">
+  <div class="hero__media">
+    {% heroPicture site.heroFoto, site.heroFotoMobiel, "Luchtfoto van een tropisch regenwoud met in het midden een helder meer in de vorm van een paar longen" %}
+  </div>
+  <div class="hero__rays" aria-hidden="true"></div>
+  <div class="hero__mist" aria-hidden="true"></div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="hero__spores" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <div class="wrap hero__grid">
+      <div>
+        <div class="breath" aria-hidden="true">
+          <span class="breath__dot"></span>
+          <span class="breath__words"><span>Adem in…</span><span>Adem uit…</span></span>
+          <span class="breath__label">adem even mee</span>
+        </div>
+        <span class="eyebrow hero__eyebrow">{{ home.hero.boventitel }}</span>
+        <h1 id="hero-titel">
+          {%- set regels = home.hero.titel.split("\n") -%}
+          {%- for regel in regels %}{% if loop.last and not loop.first %}<br><span class="accent">{{ regel }}</span>{% else %}{{ regel }}{% endif %}{% endfor -%}
+        </h1>
+      </div>
+      <div>
+        <p class="hero__text">{{ home.hero.tekst }}</p>
+        <div class="btn-row">
+          <a class="btn btn--gold" href="/kennismaken/">{{ home.hero.knop }} {{ icon("arrow") }}</a>
+          <a class="btn btn--ghost" href="tel:{{ site.telefoon | telLink }}">{{ icon("phone") }} {{ site.telefoon }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--mist" id="herken" aria-labelledby="herken-titel">
+  <div class="wrap herken">
+    <div class="reveal">
+      <span class="eyebrow">Resetcoach</span>
+      <h2 id="herken-titel">{{ home.herkenning.titel }}</h2>
+      <p class="herken__slot">{{ home.herkenning.slot }}</p>
+      <a class="btn btn--line" href="/kennismaken/" style="margin-top:1.5rem">Plan een gratis kennismaking</a>
+    </div>
+    <ul class="checklist">
+      {%- for punt in home.herkenning.punten %}
+      <li class="reveal" style="--delay: {{ loop.index0 * 0.08 }}s">{{ punt }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="reset-titel">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Somatisch ademwerk</span>
+      <h2 id="reset-titel">{{ home.reset.titel }}</h2>
+      {{ home.reset.tekst | md | safe }}
+      <div class="pillars">
+        {%- for p in home.reset.pijlers %}
+        <div class="pillar">
+          <span class="pillar__num">0{{ loop.index }}</span>
+          <h3>{{ p.titel }}</h3>
+          <p>{{ p.tekst }}</p>
+        </div>
+        {%- endfor %}
+      </div>
+      <p style="margin-top:1.8rem"><a class="link-arrow" href="/ademwerk/">Lees meer over ademwerk</a></p>
+    </div>
+    <div class="media-frame reveal" style="--delay:.15s">
+      <img src="/assets/img/sfeer/losse-sessie.jpg" alt="Close-up van een frisgroen monsterablad met dauwdruppels in zacht ochtendlicht" sizes="(max-width: 900px) 460px, 560px" eleventy:widths="480,800,1100">
+      <p class="media-frame__badge">“Je lichaam weet de weg terug. Je adem wijst hem aan.”</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--jungle on-dark" aria-labelledby="feit-titel">
+  <div class="section__bg"><img src="{{ site.bladerFoto }}" alt="" sizes="100vw" eleventy:widths="800,1400,2000"></div>
+  <div class="wrap feit reveal">
+    <div class="feit__getal" aria-hidden="true">{{ home.feit.getal }}</div>
+    <div>
+      <h2 id="feit-titel"><span class="sr-only">{{ home.feit.getal }} </span>{{ home.feit.titel }}</h2>
+      <p>{{ home.feit.tekst }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--mist" aria-labelledby="aanbod-titel">
+  <div class="wrap">
+    <div class="section__head section__head--center reveal">
+      <span class="eyebrow">Aanbod</span>
+      <h2 id="aanbod-titel">Wat kan ik voor je <span class="accent">betekenen?</span></h2>
+      <p class="lead">Eén op één, samen in een groep of een traject helemaal op maat. Je start altijd met een gratis kennismakingsgesprek.</p>
+    </div>
+    <div class="cards">
+      {%- for item in collections.aanbod %}
+      {% include "card.njk" %}
+      {%- endfor %}
+    </div>
+    <p class="cards__note reveal">Alle prijzen zijn inclusief btw. Betaling gaat <strong>uitsluitend contant</strong>.</p>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="stappen-titel">
+  <div class="wrap">
+    <div class="section__head section__head--center reveal">
+      <span class="eyebrow">Hoe het werkt</span>
+      <h2 id="stappen-titel">{{ home.stappen.titel }}</h2>
+    </div>
+    <ol class="steps">
+      {%- for stap in home.stappen.items %}
+      <li class="step reveal" style="--delay: {{ loop.index0 * 0.12 }}s">
+        <h3>{{ stap.titel }}</h3>
+        <p>{{ stap.tekst }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section--mist" aria-labelledby="over-titel">
+  <div class="wrap split">
+    <div class="media-frame reveal">
+      {%- set overFoto = home.over.foto or site.bladerFoto %}
+      <img src="{{ overFoto }}" alt="Stanley Raas, resetcoach en ademcoach in Beesel" sizes="(max-width: 900px) 460px, 560px" eleventy:widths="480,800,1100">
+      <p class="media-frame__badge">{{ site.coach }} · {{ site.rol }}</p>
+    </div>
+    <div class="reveal" style="--delay:.15s">
+      <span class="eyebrow">Over mij</span>
+      <h2 id="over-titel">{{ home.over.titel }}</h2>
+      <p class="lead">{{ home.over.tekst }}</p>
+      <a class="btn btn--line" href="/over-stanley/">{{ home.over.knop }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sand" aria-labelledby="praktisch-titel">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Praktisch</span>
+      <h2 id="praktisch-titel">{{ home.praktisch.titel }}</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info reveal">
+        <div class="info__icon">{{ icon("chat") }}</div>
+        <h3>Boeken</h3>
+        <p>Bel of app me op <a href="tel:{{ site.telefoon | telLink }}">{{ site.telefoon }}</a>{% if site.email %} of mail naar <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}. We plannen eerst een gratis kennismaking.</p>
+      </div>
+      <div class="info info--highlight reveal" style="--delay:.1s">
+        <div class="info__icon">{{ icon("cash") }}</div>
+        <span class="tag">Let op</span>
+        <h3>Alleen contant</h3>
+        <p>{{ site.betalen }}</p>
+      </div>
+      <div class="info reveal" style="--delay:.2s">
+        <div class="info__icon">{{ icon("pin") }}</div>
+        <h3>Locatie</h3>
+        <p>{{ site.adres }}<br>{% if site.postcode %}{{ site.postcode }} {% endif %}{{ site.plaats }}</p>
+        <p><a href="https://www.google.com/maps/search/?api=1&query={{ (site.adres ~ ' ' ~ site.plaats) | urlencode }}" rel="noopener" target="_blank">Route plannen</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--mist" aria-labelledby="faq-titel">
+  <div class="wrap--narrow">
+    <div class="section__head section__head--center reveal">
+      <span class="eyebrow">Veelgestelde vragen</span>
+      <h2 id="faq-titel">Goed dat je het vraagt</h2>
+    </div>
+    <div class="faq">
+      {%- for item in home.faq %}
+      <details class="reveal">
+        <summary>{{ item.vraag }}</summary>
+        <div class="faq__answer"><p>{{ item.antwoord | safe }}</p></div>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "cta.njk" %}
+
+<script src="/assets/js/hero.js" defer></script>

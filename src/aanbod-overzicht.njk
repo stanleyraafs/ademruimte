@@ -1,0 +1,51 @@
+---
+layout: base.njk
+title: Aanbod
+seoTitel: Aanbod ademwerk in Beesel | Losse sessie, groep of traject op maat
+description: Bekijk het aanbod van Ademwerk Stanley Raas in Beesel. Een losse ademsessie, een groepssessie of een persoonlijk traject op maat. €150 per uur, inclusief btw.
+permalink: /aanbod/
+---
+{%- from "icons.njk" import icon -%}
+<section class="page-hero on-dark">
+  <div class="page-hero__bg"><img src="/assets/img/sfeer/groepssessie.jpg" alt="" sizes="100vw" eleventy:widths="800,1400,2000" loading="eager" fetchpriority="high"></div>
+  <div class="wrap">
+    <ol class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+      <li aria-current="page">Aanbod</li>
+    </ol>
+    <span class="eyebrow">Aanbod</span>
+    <h1>Wat kan ik voor je betekenen?</h1>
+    <p class="lead">Of je nu één keer wilt ervaren wat ademwerk met je doet, samen met anderen wilt ademen of echt wilt werken aan herstel: er is een vorm die bij je past.</p>
+  </div>
+</section>
+
+<section class="section section--mist">
+  <div class="wrap">
+    <div class="cards">
+      {%- for item in collections.aanbod %}
+      {% include "card.njk" %}
+      {%- endfor %}
+    </div>
+
+    <div class="info-grid" style="margin-top: clamp(3rem, 6vw, 5rem)">
+      <div class="info reveal">
+        <div class="info__icon">{{ icon("chat") }}</div>
+        <h3>Eerst kennismaken</h3>
+        <p>Twijfel je welke vorm bij je past? In een gratis kennismakingsgesprek zoeken we het samen uit.</p>
+      </div>
+      <div class="info info--highlight reveal" style="--delay:.1s">
+        <div class="info__icon">{{ icon("cash") }}</div>
+        <span class="tag">Let op</span>
+        <h3>Alleen contant</h3>
+        <p>{{ site.betalen }}</p>
+      </div>
+      <div class="info reveal" style="--delay:.2s">
+        <div class="info__icon">{{ icon("phone") }}</div>
+        <h3>Boeken</h3>
+        <p>Bel of app <a href="tel:{{ site.telefoon | telLink }}">{{ site.telefoon }}</a>{% if site.email %} of mail <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "cta.njk" %}

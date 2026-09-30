@@ -1,0 +1,12 @@
+{%- from "icons.njk" import icon -%}
+<article class="card reveal" style="--delay: {{ loop.index0 * 0.12 }}s">
+  <div class="card__media"><img src="{{ item.data.afbeelding }}" alt="" sizes="(max-width: 900px) 560px, 400px" eleventy:widths="480,800"></div>
+  <div class="card__body">
+    <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+    <p>{{ item.data.kort }}</p>
+    <div class="card__foot">
+      <div class="price"><strong>{{ item.data.prijs }}</strong><small>{{ item.data.prijsNotitie | replace(" · contant te voldoen na afloop", "") | replace(" · contant te voldoen", "") }}</small></div>
+      <span class="card__more" aria-hidden="true">{{ icon("arrow") }}</span>
+    </div>
+  </div>
+</article>

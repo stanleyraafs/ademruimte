@@ -1,0 +1,24 @@
+---
+layout: base.njk
+---
+<section class="page-hero on-dark">
+  {%- set heroBg = heroAfbeelding or site.bladerFoto %}
+  <div class="page-hero__bg"><img src="{{ heroBg }}" alt="" sizes="100vw" eleventy:widths="800,1400,2000" loading="eager" fetchpriority="high"></div>
+  <div class="wrap">
+    <ol class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+      <li aria-current="page">{{ kruimel or title }}</li>
+    </ol>
+    {%- if boventitel %}<span class="eyebrow">{{ boventitel }}</span>{% endif %}
+    <h1>{{ kop or title }}</h1>
+    {%- if intro %}<p class="lead">{{ intro }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="section section--mist">
+  <div class="wrap--narrow prose">
+    {{ content | safe }}
+  </div>
+</section>
+
+{% include "cta.njk" %}

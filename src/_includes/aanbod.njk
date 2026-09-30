@@ -1,0 +1,109 @@
+---
+layout: base.njk
+---
+{%- from "icons.njk" import icon -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"Service","name":{{ title | dump | safe }},"description":{{ description | dump | safe }},"serviceType":"Somatisch ademwerk","areaServed":"Beesel en omgeving","provider":{"@id":"{{ site.url }}/#bedrijf"},"offers":{"@type":"Offer","priceCurrency":"EUR","description":{{ (prijs ~ " " ~ prijsNotitie) | dump | safe }}}},
+  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Aanbod","item":"{{ site.url }}/aanbod/"},{"@type":"ListItem","position":3,"name":{{ title | dump | safe }},"item":"{{ site.url }}{{ page.url }}"}]}
+]}
+</script>
+<section class="page-hero on-dark">
+  <div class="page-hero__bg"><img src="{{ afbeelding }}" alt="" sizes="100vw" eleventy:widths="800,1400,2000" loading="eager" fetchpriority="high"></div>
+  <div class="wrap">
+    <ol class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+      <li><a href="/aanbod/">Aanbod</a></li>
+      <li aria-current="page">{{ title }}</li>
+    </ol>
+    <span class="eyebrow">Aanbod</span>
+    <h1>{{ title }}</h1>
+    <p class="lead">{{ kort }}</p>
+  </div>
+</section>
+
+<section class="section section--mist">
+  <div class="wrap dienst">
+    <div class="dienst__main">
+      <section class="dienst__intro reveal">
+        {{ content | safe }}
+      </section>
+
+      {%- if herken %}
+      <section class="reveal">
+        <span class="eyebrow">Herken je dit?</span>
+        <h2>Misschien is dit iets voor jou</h2>
+        <ul class="checklist">
+          {%- for punt in herken %}
+          <li>{{ punt }}</li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+
+      {%- if voorWie %}
+      <section class="reveal">
+        <span class="eyebrow">Voor wie</span>
+        <h2>Voor wie is het?</h2>
+        <p>{{ voorWie }}</p>
+      </section>
+      {%- endif %}
+
+      {%- if verloop %}
+      <section class="reveal">
+        <span class="eyebrow">Zo verloopt het</span>
+        <h2>Wat kun je verwachten?</h2>
+        <ol class="timeline">
+          {%- for stap in verloop %}
+          <li><h3>{{ stap.titel }}</h3><p>{{ stap.tekst }}</p></li>
+          {%- endfor %}
+        </ol>
+      </section>
+      {%- endif %}
+
+      {%- if watKrijgJe %}
+      <section class="reveal">
+        <span class="eyebrow">Wat krijg je</span>
+        <h2>Dit krijg je</h2>
+        <ul class="checklist">
+          {%- for punt in watKrijgJe %}
+          <li>{{ punt }}</li>
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+    </div>
+
+    <aside class="aside-card" aria-label="Investering en boeken">
+      <div class="aside-card__media"><img src="{{ afbeelding }}" alt="" sizes="(max-width: 1080px) 520px, 360px" eleventy:widths="480,800"></div>
+      <div class="aside-card__body">
+        <span class="eyebrow">Investering</span>
+        <div class="price"><strong>{{ prijs }}</strong><small>{{ prijsNotitie }}</small></div>
+        <dl>
+          {%- if duur %}<div><dt>Duur</dt><dd>{{ duur }}</dd></div>{% endif %}
+          {%- if waar %}<div><dt>Waar</dt><dd>{{ waar }}</dd></div>{% endif %}
+          <div><dt>Boeken</dt><dd>Bel, app of mail. Het kennismakingsgesprek is gratis.</dd></div>
+        </dl>
+        <a class="btn btn--gold" href="tel:{{ site.telefoon | telLink }}">{{ icon("phone") }} Bel of app {{ site.telefoon }}</a>
+        <a class="btn btn--ghost" href="/kennismaken/">Gratis kennismaking</a>
+        <p class="cash-note">{{ icon("cash") }} <span>{{ site.betalen }}</span></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Ook interessant</span>
+      <h2>Ander aanbod</h2>
+    </div>
+    <div class="cards">
+      {%- for item in collections.aanbod %}{% if item.url != page.url %}
+      {% include "card.njk" %}
+      {%- endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "cta.njk" %}

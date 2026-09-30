@@ -1,0 +1,18 @@
+{%- from "icons.njk" import icon -%}
+<section class="section section--jungle on-dark cta" aria-labelledby="cta-titel">
+  <div class="section__bg"><img src="{{ site.bladerFoto }}" alt="" sizes="100vw" eleventy:widths="800,1400,2000"></div>
+  <div class="wrap--narrow reveal">
+    <span class="eyebrow">Gratis kennismaking</span>
+    <h2 id="cta-titel">{{ home.cta.titel }}</h2>
+    <p class="lead">{{ home.cta.tekst }}</p>
+    <div class="btn-row">
+      <a class="btn btn--gold" href="tel:{{ site.telefoon | telLink }}">{{ icon("phone") }} Bel of app {{ site.telefoon }}</a>
+      {%- if site.email %}
+      <a class="btn btn--ghost" href="mailto:{{ site.email }}?subject=Gratis%20kennismaking">{{ icon("mail") }} Stuur een mail</a>
+      {%- else %}
+      <a class="btn btn--ghost" href="/kennismaken/">Alle contactgegevens</a>
+      {%- endif %}
+    </div>
+    <p class="cta__contact">{{ site.adres }}, {{ site.plaats }} · Betaling uitsluitend contant</p>
+  </div>
+</section>

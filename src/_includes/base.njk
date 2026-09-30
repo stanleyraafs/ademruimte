@@ -1,0 +1,141 @@
+{%- from "icons.njk" import icon -%}
+{%- set pageTitle = (seoTitel or title) ~ " | " ~ site.naam if (seoTitel or title) else site.naam -%}
+{%- set pageDescription = description or site.omschrijving -%}
+{%- set canonical = page.url | absoluteUrl(site.url) -%}
+{%- set ogSrc = ogAfbeelding or afbeelding or site.ogAfbeelding or site.heroFoto -%}
+<!doctype html>
+<html lang="nl" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDescription }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <meta name="theme-color" content="#0a2718">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:site_name" content="{{ site.naam }}">
+  <meta property="og:title" content="{{ pageTitle }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ site.url }}{% imageUrl ogSrc, 1200, 'jpeg' %}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="/assets/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "@id": "{{ site.url }}/#bedrijf",
+    "name": {{ site.naam | dump | safe }},
+    "description": {{ site.omschrijving | dump | safe }},
+    "url": "{{ site.url }}/",
+    "telephone": "{{ site.telefoon | telLink }}",
+    {%- if site.email %}
+    "email": {{ site.email | dump | safe }},
+    {%- endif %}
+    "image": "{{ site.url }}{% imageUrl site.heroFoto, 1200, 'jpeg' %}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": {{ site.adres | dump | safe }},
+      {%- if site.postcode %}
+      "postalCode": {{ site.postcode | dump | safe }},
+      {%- endif %}
+      "addressLocality": {{ site.plaats | dump | safe }},
+      "addressRegion": "Limburg",
+      "addressCountry": "NL"
+    },
+    "areaServed": ["Beesel", "Reuver", "Venlo", "Roermond", "Limburg"],
+    "paymentAccepted": "Cash",
+    "currenciesAccepted": "EUR",
+    "priceRange": "€€",
+    "founder": { "@type": "Person", "name": {{ site.coach | dump | safe }}, "jobTitle": {{ site.rol | dump | safe }} }
+  }
+  </script>
+</head>
+<body class="{{ bodyClass }}">
+  <a class="skip-link" href="#inhoud">Direct naar de inhoud</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="logo" href="/" aria-label="{{ site.naam }}, naar de homepage">
+        {%- if site.logo %}
+        <img src="{{ site.logo }}" alt="{{ site.naam }}" width="180" height="46">
+        {%- else %}
+        <span class="logo__icon">{{ icon("lung") }}</span>
+        <span class="logo__text"><span class="logo__small">Ademwerk</span><span class="logo__name">{{ site.coach }}</span></span>
+        {%- endif %}
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hoofdmenu"><span></span><span class="sr-only">Menu</span></button>
+      <nav class="nav" id="hoofdmenu" aria-label="Hoofdmenu">
+        <ul class="nav__list">
+          {%- for item in nav %}
+          <li><a href="{{ item.url }}"{% if page.url == item.url or (item.url != "/" and page.url.startsWith(item.url)) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+          {%- endfor %}
+        </ul>
+        <a class="btn btn--gold nav__cta" href="/kennismaken/">Gratis kennismaking</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhoud">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="/">
+            <span class="logo__icon">{{ icon("lung") }}</span>
+            <span class="logo__text"><span class="logo__small">Ademwerk</span><span class="logo__name">{{ site.coach }}</span></span>
+          </a>
+          <p>Resetcoach en somatisch ademwerk in Beesel. Terug naar rust, terug in je lijf, terug naar jezelf.</p>
+        </div>
+        <div>
+          <h2>Aanbod</h2>
+          <ul>
+            {%- for item in collections.aanbod %}
+            <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+            {%- endfor %}
+            <li><a href="/ademwerk/">Wat is ademwerk?</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="tel:{{ site.telefoon | telLink }}">Bel of app: {{ site.telefoon }}</a></li>
+            {%- if site.email %}
+            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            {%- endif %}
+            <li><a href="/kennismaken/">Gratis kennismaking</a></li>
+            {%- if site.instagram %}<li><a href="{{ site.instagram }}" rel="noopener" target="_blank">Instagram</a></li>{% endif %}
+            {%- if site.facebook %}<li><a href="{{ site.facebook }}" rel="noopener" target="_blank">Facebook</a></li>{% endif %}
+            {%- if site.linkedin %}<li><a href="{{ site.linkedin }}" rel="noopener" target="_blank">LinkedIn</a></li>{% endif %}
+          </ul>
+        </div>
+        <div>
+          <h2>Praktijk</h2>
+          <address>
+            {{ site.naam }}<br>
+            {{ site.adres }}<br>
+            {% if site.postcode %}{{ site.postcode }} {% endif %}{{ site.plaats }}
+          </address>
+          <p style="margin-top:.8rem">Betaling uitsluitend contant.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© {{ "" | year }} {{ site.naam }}</span>
+        <span>Ademwerk is geen vervanging van medische of psychologische zorg.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+---
+layout: base.njk
+title: Contact & gratis kennismaking
+seoTitel: Contact | Gratis kennismaking met ademcoach Stanley Raas in Beesel
+description: Plan een gratis en vrijblijvend kennismakingsgesprek met resetcoach Stanley Raas in Beesel. Bel of app 06 22 37 97 22. Betaling uitsluitend contant.
+permalink: /kennismaken/
+---
+{%- from "icons.njk" import icon -%}
+<section class="page-hero on-dark">
+  <div class="page-hero__bg"><img src="/assets/img/sfeer/maatwerk.jpg" alt="" sizes="100vw" eleventy:widths="800,1400,2000" loading="eager" fetchpriority="high"></div>
+  <div class="wrap">
+    <ol class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+      <li aria-current="page">Contact</li>
+    </ol>
+    <span class="eyebrow">Gratis kennismaking</span>
+    <h1>Zet de eerste stap</h1>
+    <p class="lead">In een gratis en vrijblijvend gesprek vertel je wat er speelt, en kijken we samen of ademwerk bij je past. Geen verplichtingen, gewoon kennismaken.</p>
+  </div>
+</section>
+
+<section class="section section--mist">
+  <div class="wrap">
+    <div class="contact-grid">
+      <a class="contact-card reveal" href="tel:{{ site.telefoon | telLink }}">
+        <div class="info__icon">{{ icon("phone") }}</div>
+        <span>Bellen</span>
+        <strong>{{ site.telefoon }}</strong>
+        <span>Neem ik niet op? Dan bel ik je zo snel mogelijk terug.</span>
+      </a>
+      <div class="contact-card reveal" style="--delay:.1s">
+        <div class="info__icon">{{ icon("chat") }}</div>
+        <span>Appen</span>
+        <strong>{{ site.telefoon }}</strong>
+        <span>Stuur een berichtje met je naam en wanneer je bereikbaar bent.</span>
+      </div>
+      {%- if site.email %}
+      <a class="contact-card reveal" style="--delay:.2s" href="mailto:{{ site.email }}?subject=Gratis%20kennismaking">
+        <div class="info__icon">{{ icon("mail") }}</div>
+        <span>Mailen</span>
+        <strong>{{ site.email }}</strong>
+        <span>Vertel kort wat er speelt, dan neem ik contact met je op.</span>
+      </a>
+      {%- else %}
+      <div class="contact-card reveal" style="--delay:.2s">
+        <div class="info__icon">{{ icon("pin") }}</div>
+        <span>Praktijk</span>
+        <strong>{{ site.plaats }}</strong>
+        <span>{{ site.adres }}{% if site.postcode %}, {{ site.postcode }}{% endif %} {{ site.plaats }}</span>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--sand">
+  <div class="wrap split split--top">
+    <div class="reveal">
+      <span class="eyebrow">Zo gaat het verder</span>
+      <h2>Na je bericht</h2>
+      <ol class="timeline">
+        <li><h3>Kennismaken</h3><p>We hebben een kort, gratis gesprek. Je vertelt wat er speelt en stelt al je vragen.</p></li>
+        <li><h3>Afspraak plannen</h3><p>Past het? Dan plannen we samen een moment voor je eerste sessie.</p></li>
+        <li><h3>Jouw sessie</h3><p>Je komt naar de praktijk in {{ site.plaats }}. Neem makkelijk zittende kleding mee en neem de tijd.</p></li>
+      </ol>
+    </div>
+    <div class="reveal" style="--delay:.15s">
+      <div class="info info--highlight" style="margin-bottom:1.2rem">
+        <div class="info__icon">{{ icon("cash") }}</div>
+        <span class="tag">Let op</span>
+        <h3>Betaling uitsluitend contant</h3>
+        <p>{{ site.betalen }}</p>
+      </div>
+      <div class="info">
+        <div class="info__icon">{{ icon("pin") }}</div>
+        <h3>Adres</h3>
+        <p>{{ site.naam }}<br>{{ site.adres }}<br>{% if site.postcode %}{{ site.postcode }} {% endif %}{{ site.plaats }}</p>
+        <p><a href="https://www.google.com/maps/search/?api=1&query={{ (site.adres ~ ' ' ~ site.plaats) | urlencode }}" rel="noopener" target="_blank">Route plannen in Google Maps</a></p>
+      </div>
+    </div>
+  </div>
+</section>
