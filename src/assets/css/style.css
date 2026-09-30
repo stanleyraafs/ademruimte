@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Ademwerk Stanley Raas
+   Ademwerk Stanley Raafs
    ========================================================================== */
 
 @font-face {
@@ -490,8 +490,9 @@ em {
 /* ---------- hero (home) ---------- */
 .hero {
   position: relative;
-  min-height: 100svh;
+  /* vh als terugval; svh daarna, zodat de hero op mobiel niet achter de adresbalk valt */
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: flex-end;
   color: #fff;

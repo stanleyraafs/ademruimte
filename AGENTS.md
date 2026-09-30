@@ -1,8 +1,10 @@
 # AGENTS.md: overdracht voor AI-agents
 
-Dit is de website van **Ademwerk Stanley Raas**, resetcoach en begeleider van somatisch (verbonden) ademwerk in Beesel (Limburg). De site is een statische [Eleventy 3](https://www.11ty.dev/)-site. De eigenaar beheert de inhoud zelf via [Decap CMS](https://decapcms.org/) op `/admin/`. De site is volledig in het Nederlands.
+Dit is de website van **Ademwerk Stanley Raafs**, resetcoach en begeleider van somatisch (verbonden) ademwerk in Beesel (Limburg). De site is een statische [Eleventy 3](https://www.11ty.dev/)-site. De eigenaar beheert de inhoud zelf via [Decap CMS](https://decapcms.org/) op `/admin/`. De site is volledig in het Nederlands.
 
 **Status:** alle pagina's zijn af en lokaal getest. De code staat in de **publieke** repo [`stanleyraafs/ademwerk`](https://github.com/stanleyraafs/ademwerk) (branch `main`). De site is nog **niet online**: Netlify en het CMS-inloggen moeten nog worden ingericht. Deploy of koppel diensten niet zonder expliciete opdracht van de eigenaar. Omdat de repo publiek is, commit je nooit persoonlijke notities, transcripten, sleutels of tokens. Wat nog openstaat, staat in [`docs/status.md`](docs/status.md).
+
+**Werkwijze:** commit nooit rechtstreeks op `main` en zet nooit iets live zonder akkoord van de eigenaar. Werk op een aparte branch en open een pull request. De eigenaar bekijkt de wijzigingen (en de Netlify-preview) en geeft akkoord voordat er gemerged wordt.
 
 ## Lees dit eerst
 

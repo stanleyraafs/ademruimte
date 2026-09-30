@@ -4,6 +4,7 @@ volgorde: 2
 kort: Samen ademen in een kleine groep. Krachtig, verbindend en een laagdrempelige manier om ademwerk te ervaren.
 prijs: Op aanvraag
 prijsNotitie: prijs per deelnemer · contant te voldoen
+kaartNotitie: prijs per deelnemer
 duur: Een groepssessie duurt ongeveer 2 à 2,5 uur.
 waar: Beesel of op een locatie in de regio
 afbeelding: /assets/img/sfeer/groepssessie.jpg

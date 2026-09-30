@@ -1,5 +1,6 @@
 {%- from "icons.njk" import icon -%}
-{%- set pageTitle = (seoTitel or title) ~ " | " ~ site.naam if (seoTitel or title) else site.naam -%}
+{#- Een eigen SEO-titel is al compleet; alleen een gewone titel krijgt de sitenaam erachter (anders te lang voor Google) -#}
+{%- set pageTitle = seoTitel if seoTitel else (title ~ " | " ~ site.naam if title else site.naam) -%}
 {%- set pageDescription = description or site.omschrijving -%}
 {%- set canonical = page.url | absoluteUrl(site.url) -%}
 {%- set ogSrc = ogAfbeelding or afbeelding or site.ogAfbeelding or site.heroFoto -%}
@@ -95,7 +96,7 @@
             <span class="logo__icon">{{ icon("lung") }}</span>
             <span class="logo__text"><span class="logo__small">Ademwerk</span><span class="logo__name">{{ site.coach }}</span></span>
           </a>
-          <p>Resetcoach en somatisch ademwerk in Beesel. Terug naar rust, terug in je lijf, terug naar jezelf.</p>
+          <p>{{ site.slogan }}</p>
         </div>
         <div>
           <h2>Aanbod</h2>
@@ -126,7 +127,7 @@
             {{ site.adres }}<br>
             {% if site.postcode %}{{ site.postcode }} {% endif %}{{ site.plaats }}
           </address>
-          <p style="margin-top:.8rem">Betaling uitsluitend contant.</p>
+          <p style="margin-top:.8rem">{{ site.betalenKort }}.</p>
         </div>
       </div>
       <div class="footer-bottom">

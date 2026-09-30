@@ -2,8 +2,9 @@
 layout: base.njk
 title: Aanbod
 seoTitel: Aanbod ademwerk in Beesel | Losse sessie, groep of traject op maat
-description: Bekijk het aanbod van Ademwerk Stanley Raas in Beesel. Een losse ademsessie, een groepssessie of een persoonlijk traject op maat. €150 per uur, inclusief btw.
 permalink: /aanbod/
+eleventyComputed:
+  description: "Bekijk het aanbod van {{ site.naam | safe }} in {{ site.plaats | safe }}. Een losse ademsessie, een groepssessie of een persoonlijk traject op maat. {{ site.tarief | safe }}, {{ site.btw | safe }}."
 ---
 {%- from "icons.njk" import icon -%}
 <section class="page-hero on-dark">

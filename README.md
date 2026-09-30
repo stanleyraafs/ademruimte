@@ -1,6 +1,6 @@
-# Website Ademwerk Stanley Raas
+# Website Ademwerk Stanley Raafs
 
-Website voor resetcoach en ademcoach Stanley Raas in Beesel. De site wordt gebouwd met [Eleventy](https://www.11ty.dev/). Beheer gaat via [Decap CMS](https://decapcms.org/) op `/admin/`.
+Website voor resetcoach en ademcoach Stanley Raafs in Beesel. De site wordt gebouwd met [Eleventy](https://www.11ty.dev/). Beheer gaat via [Decap CMS](https://decapcms.org/) op `/admin/`.
 
 > **Werk je als AI-agent (of ontwikkelaar) aan dit project?** Begin bij [`AGENTS.md`](AGENTS.md). Daar staan de afspraken met de klant, de valkuilen en de werkwijze. De achtergrond staat in [`docs/`](docs/).
 

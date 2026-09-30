@@ -34,14 +34,14 @@
 
 ## Te verifiëren bij de klant (aannames)
 
+Bevestigd door de eigenaar: achternaam **Raafs** en e-mailadres **Stanley.raafs@gmail.com** (beide in `site.json`).
+
 | Wat | Nu op de site | Toelichting |
 |---|---|---|
-| **Achternaam** | Raas | Uit de spraakopname. Het GitHub-account heet echter `stanleyraafs`, dus het kan ook **Raafs** zijn. **Controleren**: de naam staat op elke pagina, in `site.json` (`naam`, `coach`) en in teksten en SEO-titels. |
 | Straatnaam | Bussereindseweg 9 | Uit de spraakopname ("Busser Eindseweg"). **Spelling controleren.** |
 | Plaats | Beesel | De opname zei "Bezel". |
 | Postcode | *(leeg)* | Niet genoemd. |
-| E-mailadres | *(leeg)* | Niet genoemd, terwijl boeken ook via mail moet kunnen. De e-mailblokken verschijnen vanzelf zodra het veld gevuld is. |
-| Domein | `https://www.ademwerkstanleyraas.nl` | Een voorbeeld. Aanpassen in `site.url` en in `src/admin/config.yml` (`site_url` / `display_url`). |
+| Domein | `https://www.ademwerkstanleyraafs.nl` | Een voorbeeld. Aanpassen in `site.url` en in `src/admin/config.yml` (`site_url` / `display_url`). |
 | Duur van een losse sessie | "meestal 1,5 à 2 uur, inclusief intake en nagesprek" | Een aanname, gebaseerd op wat in het vak gebruikelijk is. |
 | Groepssessie | prijs "Op aanvraag", duur "2 à 2,5 uur" | Een aanname. De klant noemde alleen €150 per uur. |
 | Details van de sessies | thee, matje, oefening voor thuis, tussentijds contact | Door de maker geschreven voorbeeldteksten. |

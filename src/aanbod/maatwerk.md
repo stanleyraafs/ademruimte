@@ -4,6 +4,7 @@ volgorde: 3
 kort: Een traject dat helemaal is afgestemd op jou. Voor blijvende verandering bij burn-out, overspannenheid of trauma.
 prijs: €150 per uur
 prijsNotitie: inclusief btw · aantal sessies in overleg · contant te voldoen
+kaartNotitie: inclusief btw · aantal sessies in overleg
 duur: Aantal sessies, duur en frequentie stemmen we samen af.
 waar: In mijn praktijk in Beesel, of in overleg op een andere locatie
 afbeelding: /assets/img/sfeer/maatwerk.jpg

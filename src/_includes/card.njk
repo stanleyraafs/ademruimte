@@ -5,7 +5,7 @@
     <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
     <p>{{ item.data.kort }}</p>
     <div class="card__foot">
-      <div class="price"><strong>{{ item.data.prijs }}</strong><small>{{ item.data.prijsNotitie | replace(" · contant te voldoen na afloop", "") | replace(" · contant te voldoen", "") }}</small></div>
+      <div class="price"><strong>{{ item.data.prijs }}</strong><small>{{ item.data.kaartNotitie or item.data.prijsNotitie }}</small></div>
       <span class="card__more" aria-hidden="true">{{ icon("arrow") }}</span>
     </div>
   </div>

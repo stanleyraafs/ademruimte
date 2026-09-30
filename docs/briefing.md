@@ -39,7 +39,7 @@ De klant beantwoordde de vragen in een gesproken opname. Het ruwe transcript sta
 
 | # | Vraag | Antwoord |
 |---|---|---|
-| 1 | Wie is de coach? | **Stanley Raas.** De bedrijfsnaam is *Ademwerk Stanley Raas*. Locatie: **Beesel** (in de opname klonk dat als "Bezel"). Adres: **Bussereindseweg 9** (in de opname klonk dat als "Busser Eindseweg nummer 9"; nog te verifiëren). Telefoon: **06 22 37 97 22**. Er zijn al een logo en een huisstijl, maar die waren nog niet beschikbaar. |
+| 1 | Wie is de coach? | **Stanley Raafs.** De bedrijfsnaam is *Ademwerk Stanley Raafs*. Locatie: **Beesel** (in de opname klonk dat als "Bezel"). Adres: **Bussereindseweg 9** (in de opname klonk dat als "Busser Eindseweg nummer 9"; nog te verifiëren). Telefoon: **06 22 37 97 22**. Er zijn al een logo en een huisstijl, maar die waren nog niet beschikbaar. |
 | 2 | Wat is het aanbod? | Een **losse sessie**, een **groepssessie** en een **persoonlijk traject op maat**. De prijs is **€150 per uur, inclusief btw**. |
 | 3 | Welke vorm van ademwerk, en voor wie? | **Somatisch, verbonden ademwerk.** Het is voor iedereen, maar hij positioneert zich als **resetcoach**: voor mensen die tegen zichzelf aanlopen, die overspannen zijn, in een burn-out zitten of niet meer weten waar ze het moeten zoeken. En uiteraard voor **traumaverwerking**. |
 | 4 | Hoe maken we de hero-afbeelding? | **Optie C:** een AI-foto met daaroverheen een subtiele animatie. |
