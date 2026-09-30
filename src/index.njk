@@ -124,7 +124,8 @@ eleventyComputed:
     </div>
     <ul class="checklist reveal" style="--delay:.15s">
       {%- for item in collections.zakelijk %}
-      <li><a href="{{ item.url }}"><strong>{{ item.data.title }}</strong></a><br>{{ item.data.kort }}</li>
+      {#- Eén kind-element: het lijstpunt is een raster met een vaste kolom voor het blaadje -#}
+      <li><span><a href="{{ item.url }}"><strong>{{ item.data.title }}</strong></a><br>{{ item.data.kort }}</span></li>
       {%- endfor %}
     </ul>
   </div>
