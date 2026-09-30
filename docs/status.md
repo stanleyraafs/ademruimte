@@ -34,13 +34,10 @@
 
 ## Te verifiëren bij de klant (aannames)
 
-Bevestigd door de eigenaar: achternaam **Raafs** en e-mailadres **Stanley.raafs@gmail.com** (beide in `site.json`).
+Bevestigd door de eigenaar: achternaam **Raafs**, e-mailadres **Stanley.raafs@gmail.com** en adres **Bussereindseweg 9, 5954 CE Beesel** (alles in `site.json`).
 
 | Wat | Nu op de site | Toelichting |
 |---|---|---|
-| Straatnaam | Bussereindseweg 9 | Uit de spraakopname ("Busser Eindseweg"). **Spelling controleren.** |
-| Plaats | Beesel | De opname zei "Bezel". |
-| Postcode | *(leeg)* | Niet genoemd. |
 | Domein | `https://precious-begonia-26d629.netlify.app` | Het Netlify-adres. Bij een eigen domein aanpassen in `site.url` en in `src/admin/config.yml` (`site_url` / `display_url`). |
 | Duur van een losse sessie | "meestal 1,5 à 2 uur, inclusief intake en nagesprek" | Een aanname, gebaseerd op wat in het vak gebruikelijk is. |
 | Groepssessie | prijs "Op aanvraag", duur "2 à 2,5 uur" | Een aanname. De klant noemde alleen €150 per uur. |

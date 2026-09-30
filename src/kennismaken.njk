@@ -76,7 +76,7 @@ eleventyComputed:
         <div class="info__icon">{{ icon("pin") }}</div>
         <h3>Adres</h3>
         <p>{{ site.naam }}<br>{{ site.adres }}<br>{% if site.postcode %}{{ site.postcode }} {% endif %}{{ site.plaats }}</p>
-        <p><a href="https://www.google.com/maps/search/?api=1&query={{ (site.adres ~ ' ' ~ site.plaats) | urlencode }}" rel="noopener" target="_blank">Route plannen in Google Maps</a></p>
+        <p><a href="https://www.google.com/maps/search/?api=1&query={{ (site.adres ~ ' ' ~ site.postcode ~ ' ' ~ site.plaats) | urlencode }}" rel="noopener" target="_blank">Route plannen in Google Maps</a></p>
       </div>
     </div>
   </div>
