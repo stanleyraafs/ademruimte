@@ -5,6 +5,22 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Basisbeveiliging voor alle pagina's. SAMEORIGIN (niet DENY) omdat het CMS de site in een eigen voorbeeldvenster toont.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000"
+
+# Beheeromgeving nooit in Google
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 [[headers]]
   for = "/img/*"
   [headers.values]

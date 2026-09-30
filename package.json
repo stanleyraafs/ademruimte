@@ -1,7 +1,7 @@
 {
-  "name": "ademwerk-stanley-raas",
+  "name": "ademwerk-stanley-raafs",
   "version": "1.0.0",
-  "description": "Website Ademwerk Stanley Raas",
+  "description": "Website Ademwerk Stanley Raafs",
   "scripts": {
     "dev": "eleventy --serve --port 8080",
     "build": "eleventy",

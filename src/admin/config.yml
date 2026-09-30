@@ -15,8 +15,8 @@ backend:
 local_backend: true
 
 locale: nl
-site_url: https://www.ademwerkstanleyraas.nl
-display_url: https://www.ademwerkstanleyraas.nl
+site_url: https://precious-begonia-26d629.netlify.app
+display_url: https://precious-begonia-26d629.netlify.app
 media_folder: src/assets/uploads
 public_folder: /assets/uploads
 
@@ -37,6 +37,7 @@ collections:
       - { label: Korte omschrijving (op de kaart), name: kort, widget: text }
       - { label: Prijs, name: prijs, widget: string, hint: "Bijv. €150 per uur of Op aanvraag" }
       - { label: Toelichting bij prijs, name: prijsNotitie, widget: string, hint: "Bijv. inclusief btw · contant te voldoen na afloop" }
+      - { label: Toelichting op de kaart (kort), name: kaartNotitie, widget: string, required: false, hint: "Korte versie voor de aanbodkaart, bijv. inclusief btw. Leeg = toelichting bij prijs." }
       - { label: Duur, name: duur, widget: string, required: false }
       - { label: Waar, name: waar, widget: string, required: false }
       - { label: Foto, name: afbeelding, widget: image }
@@ -88,7 +89,8 @@ collections:
           - { label: Bedrijfsnaam, name: naam, widget: string }
           - { label: Naam coach, name: coach, widget: string }
           - { label: Functie, name: rol, widget: string }
-          - { label: Websiteadres, name: url, widget: string, hint: "Zonder / aan het eind, bijv. https://www.ademwerkstanleyraas.nl" }
+          - { label: Slogan (in de footer), name: slogan, widget: text }
+          - { label: Websiteadres, name: url, widget: string, hint: "Zonder / aan het eind, bijv. https://www.ademwerkstanleyraafs.nl" }
           - { label: "SEO: standaard omschrijving", name: omschrijving, widget: text }
           - { label: Telefoon, name: telefoon, widget: string }
           - { label: E-mail, name: email, widget: string, required: false }
@@ -98,6 +100,7 @@ collections:
           - { label: Werkgebied, name: regio, widget: string }
           - { label: Tarief, name: tarief, widget: string }
           - { label: Btw-vermelding, name: btw, widget: string }
+          - { label: Betaaltekst kort, name: betalenKort, widget: string, hint: "Korte regel in footer, afsluitende oproep en contactpagina." }
           - { label: Betaaltekst, name: betalen, widget: text, hint: "Staat overal waar het over betalen gaat." }
           - { label: Logo (optioneel), name: logo, widget: image, required: false, hint: "Leeg laten = tekstlogo met long-icoon." }
           - { label: Hero-foto (liggend), name: heroFoto, widget: image }

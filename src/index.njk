@@ -135,7 +135,7 @@ eleventyComputed:
   <div class="wrap split">
     <div class="media-frame reveal">
       {%- set overFoto = home.over.foto or site.bladerFoto %}
-      <img src="{{ overFoto }}" alt="Stanley Raas, resetcoach en ademcoach in Beesel" sizes="(max-width: 900px) 460px, 560px" eleventy:widths="480,800,1100">
+      <img src="{{ overFoto }}" alt="{{ site.coach }}, {{ site.rol | lower }} in {{ site.plaats }}" sizes="(max-width: 900px) 460px, 560px" eleventy:widths="480,800,1100">
       <p class="media-frame__badge">{{ site.coach }} · {{ site.rol }}</p>
     </div>
     <div class="reveal" style="--delay:.15s">

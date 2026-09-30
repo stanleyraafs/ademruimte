@@ -4,8 +4,8 @@ title: Over Stanley
 kop: Hoi, ik ben Stanley
 boventitel: Resetcoach & ademcoach
 intro: Ik help mensen die vastlopen weer terug te komen bij zichzelf. Niet door nog harder na te denken, maar door te vertragen, te voelen en te ademen.
-seoTitel: Over Stanley Raas, resetcoach en ademcoach in Beesel
-description: Maak kennis met Stanley Raas, resetcoach en begeleider van somatisch ademwerk in Beesel. Warm, nuchter en met veiligheid voorop.
+seoTitel: Over Stanley Raafs, resetcoach en ademcoach in Beesel
+description: Maak kennis met Stanley Raafs, resetcoach en begeleider van somatisch ademwerk in Beesel. Warm, nuchter en met veiligheid voorop.
 permalink: /over-stanley/
 ---
 
@@ -28,4 +28,4 @@ Je bent welkom in mijn praktijk aan de Bussereindseweg in Beesel. Het is een rus
 
 > “Je adem is er altijd, op elk moment. Je hoeft alleen te leren luisteren.”
 
-Wil je eerst kennismaken? Bel of app me gerust op [06 22 37 97 22](tel:+31622379722). Het kennismakingsgesprek is gratis en vrijblijvend.
+Wil je eerst kennismaken? Bel, app of mail me gerust. Je vindt al mijn [contactgegevens hier](/kennismaken/). Het kennismakingsgesprek is gratis en vrijblijvend.

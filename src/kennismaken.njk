@@ -1,9 +1,10 @@
 ---
 layout: base.njk
 title: Contact & gratis kennismaking
-seoTitel: Contact | Gratis kennismaking met ademcoach Stanley Raas in Beesel
-description: Plan een gratis en vrijblijvend kennismakingsgesprek met resetcoach Stanley Raas in Beesel. Bel of app 06 22 37 97 22. Betaling uitsluitend contant.
 permalink: /kennismaken/
+eleventyComputed:
+  seoTitel: "Contact | Gratis kennismaking met {{ site.coach | safe }} in {{ site.plaats | safe }}"
+  description: "Plan een gratis en vrijblijvend kennismakingsgesprek met resetcoach {{ site.coach | safe }} in {{ site.plaats | safe }}. Bel of app {{ site.telefoon | safe }}. {{ site.betalenKort | safe }}."
 ---
 {%- from "icons.njk" import icon -%}
 <section class="page-hero on-dark">
@@ -68,7 +69,7 @@ permalink: /kennismaken/
       <div class="info info--highlight" style="margin-bottom:1.2rem">
         <div class="info__icon">{{ icon("cash") }}</div>
         <span class="tag">Let op</span>
-        <h3>Betaling uitsluitend contant</h3>
+        <h3>{{ site.betalenKort }}</h3>
         <p>{{ site.betalen }}</p>
       </div>
       <div class="info">

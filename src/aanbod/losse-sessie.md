@@ -4,6 +4,7 @@ volgorde: 1
 kort: Eén op één, met volle aandacht voor jou. Voor een eerste reset, of om te voelen wat ademwerk met je doet.
 prijs: €150 per uur
 prijsNotitie: inclusief btw · contant te voldoen na afloop
+kaartNotitie: inclusief btw
 duur: Een eerste sessie duurt meestal 1,5 à 2 uur, inclusief intake en nagesprek.
 waar: In mijn praktijk in Beesel
 afbeelding: /assets/img/sfeer/losse-sessie.jpg

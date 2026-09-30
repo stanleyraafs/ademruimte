@@ -2,3 +2,6 @@ node_modules/
 _site/
 .cache/
 _notes/
+
+# Lokale instellingen van Claude Code
+.claude/
