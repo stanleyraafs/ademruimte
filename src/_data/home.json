@@ -22,9 +22,18 @@
     "titel": "Waarom een resetcoach?",
     "tekst": "Stress, overbelasting en oude ervaringen slaan zich niet alleen op in je gedachten, maar ook in je lichaam. Je ademhaling wordt hoog en vlak, je spieren blijven gespannen en je zenuwstelsel staat constant ‘aan’. Praten helpt, maar komt niet altijd bij de kern.\n\nIn een sessie somatisch ademwerk adem je bewust en verbonden, zonder pauze tussen in- en uitademing. Daardoor kom je voorbij het denken. Spanning, emotie en energie die vastzaten, krijgen de kans om in beweging te komen en te ontladen. Wat overblijft is vaak: rust, helderheid en weer contact met jezelf.",
     "pijlers": [
-      { "titel": "Ontladen", "tekst": "Opgebouwde spanning en emoties krijgen ruimte om je lichaam te verlaten." },
-      { "titel": "Voelen", "tekst": "Van overleven in je hoofd naar weer thuiskomen in je lijf." },
-      { "titel": "Herstellen", "tekst": "Je zenuwstelsel komt tot rust, zodat je veerkracht kan groeien." }
+      {
+        "titel": "Ontladen",
+        "tekst": "Opgebouwde spanning en emoties krijgen ruimte om je lichaam te verlaten."
+      },
+      {
+        "titel": "Voelen",
+        "tekst": "Van overleven in je hoofd naar weer thuiskomen in je lijf."
+      },
+      {
+        "titel": "Herstellen",
+        "tekst": "Je zenuwstelsel komt tot rust, zodat je veerkracht kan groeien."
+      }
     ]
   },
   "feit": {
@@ -32,12 +41,27 @@
     "titel": "keer per dag adem je.",
     "tekst": "Meestal zonder dat je het merkt. Je adem reageert op alles wat je meemaakt, en hij kan je ook de weg terug wijzen. Hij is er altijd, op elk moment. Je hoeft alleen te leren luisteren."
   },
+  "zakelijk": {
+    "boventitel": "Voor organisaties",
+    "titel": "Ook voor werkgevers en teams",
+    "tekst": "Werkdruk en stress raken niet alleen mensen, maar ook organisaties. Met biologische stresscoaching en ademtherapie help ik MKB-bedrijven in Limburg en Noord-Brabant aan duurzaam inzetbare medewerkers. Met individuele trajecten en teamworkshops, onderbouwd met metingen.",
+    "knop": "Bekijk het zakelijk aanbod"
+  },
   "stappen": {
     "titel": "Zo werkt het",
     "items": [
-      { "titel": "Gratis kennismaking", "tekst": "Je belt, appt of mailt me. In een vrijblijvend gesprek vertel je wat er speelt en kijken we samen of ademwerk bij je past." },
-      { "titel": "Jouw ademsessie", "tekst": "We starten met een intake. Daarna begeleid ik je door de ademreis, in jouw tempo en met veiligheid voorop." },
-      { "titel": "Landen & integreren", "tekst": "We nemen de tijd om na te bespreken wat je hebt ervaren. Je gaat naar huis met handvatten om het vast te houden." }
+      {
+        "titel": "Gratis kennismaking",
+        "tekst": "Je belt, appt of mailt me. In een vrijblijvend gesprek vertel je wat er speelt en kijken we samen of ademwerk bij je past."
+      },
+      {
+        "titel": "Jouw ademsessie",
+        "tekst": "We starten met een intake. Daarna begeleid ik je door de ademreis, in jouw tempo en met veiligheid voorop."
+      },
+      {
+        "titel": "Landen & integreren",
+        "tekst": "We nemen de tijd om na te bespreken wat je hebt ervaren. Je gaat naar huis met handvatten om het vast te houden."
+      }
     ]
   },
   "over": {
@@ -49,12 +73,30 @@
     "titel": "Goed om te weten"
   },
   "faq": [
-    { "vraag": "Wat is somatisch ademwerk precies?", "antwoord": "Somatisch ademwerk is een vorm van verbonden ademen: je ademt bewust, diep en zonder pauze tussen in- en uitademing. ‘Somatisch’ betekent dat het lichaam centraal staat. Je ervaart wat er in je lijf gebeurt, in plaats van erover te praten." },
-    { "vraag": "Voor wie is ademwerk geschikt?", "antwoord": "Ademwerk is er voor iedereen die weer contact wil maken met zichzelf. Ik werk vooral met mensen die vastlopen, overspannen zijn, in of tegen een burn-out zitten, of die oude pijn en trauma willen verwerken." },
-    { "vraag": "Is het veilig?", "antwoord": "Veiligheid staat voorop. We beginnen altijd met een intake en ik begeleid je de hele sessie. Bij sommige lichamelijke of psychische klachten is ademwerk niet geschikt of alleen in overleg. Op de pagina <a href=\"/ademwerk/#veiligheid\">Wat is ademwerk</a> lees je wanneer."  },
-    { "vraag": "Hoeveel sessies heb ik nodig?", "antwoord": "Dat is voor iedereen anders. Eén sessie kan al veel in beweging zetten. Wil je dieper gaan of blijvend veranderen, dan stemmen we samen een traject op maat af." },
-    { "vraag": "Hoe betaal ik?", "antwoord": "Je betaalt contant, na afloop van de sessie. Pinnen of betalen via een betaalverzoek is niet mogelijk." },
-    { "vraag": "Vervangt ademwerk een huisarts of psycholoog?", "antwoord": "Nee. Ademwerk kan een waardevolle aanvulling zijn, maar is geen vervanging van medische of psychologische zorg. Ben je onder behandeling? Overleg dan ook met je behandelaar." }
+    {
+      "vraag": "Wat is somatisch ademwerk precies?",
+      "antwoord": "Somatisch ademwerk is een vorm van verbonden ademen: je ademt bewust, diep en zonder pauze tussen in- en uitademing. ‘Somatisch’ betekent dat het lichaam centraal staat. Je ervaart wat er in je lijf gebeurt, in plaats van erover te praten."
+    },
+    {
+      "vraag": "Voor wie is ademwerk geschikt?",
+      "antwoord": "Ademwerk is er voor iedereen die weer contact wil maken met zichzelf. Ik werk vooral met mensen die vastlopen, overspannen zijn, in of tegen een burn-out zitten, of die oude pijn en trauma willen verwerken."
+    },
+    {
+      "vraag": "Is het veilig?",
+      "antwoord": "Veiligheid staat voorop. We beginnen altijd met een intake en ik begeleid je de hele sessie. Bij sommige lichamelijke of psychische klachten is ademwerk niet geschikt of alleen in overleg. Op de pagina <a href=\"/ademwerk/#veiligheid\">Wat is ademwerk</a> lees je wanneer."
+    },
+    {
+      "vraag": "Hoeveel sessies heb ik nodig?",
+      "antwoord": "Dat is voor iedereen anders. Eén sessie kan al veel in beweging zetten. Wil je dieper gaan of blijvend veranderen, dan stemmen we samen een traject op maat af."
+    },
+    {
+      "vraag": "Hoe betaal ik?",
+      "antwoord": "Je betaalt contant, na afloop van de sessie. Pinnen of betalen via een betaalverzoek is niet mogelijk."
+    },
+    {
+      "vraag": "Vervangt ademwerk een huisarts of psycholoog?",
+      "antwoord": "Nee. Ademwerk kan een waardevolle aanvulling zijn, maar is geen vervanging van medische of psychologische zorg. Ben je onder behandeling? Overleg dan ook met je behandelaar."
+    }
   ],
   "cta": {
     "titel": "Klaar voor jouw reset?",

@@ -1,0 +1,176 @@
+---
+layout: base.njk
+title: Zakelijk
+permalink: /zakelijk/
+eleventyComputed:
+  seoTitel: "{{ zakelijk.seoTitel | safe }}"
+  description: "{{ zakelijk.description | safe }}"
+---
+{%- from "icons.njk" import icon -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"FAQPage","mainEntity":[
+  {%- for item in zakelijk.faq %}
+    {"@type":"Question","name":{{ item.vraag | dump | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ item.antwoord | striptags | dump | safe }}}}{% if not loop.last %},{% endif %}
+  {%- endfor %}
+  ]},
+  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Zakelijk","item":"{{ site.url }}/zakelijk/"}]}
+]}
+</script>
+
+<section class="page-hero on-dark">
+  <div class="page-hero__bg"><img src="/assets/img/sfeer/maatwerk.jpg" alt="" sizes="100vw" eleventy:widths="800,1400,2000" loading="eager" fetchpriority="high"></div>
+  <div class="wrap">
+    <ol class="breadcrumbs">
+      <li><a href="/">Home</a></li>
+      <li aria-current="page">Zakelijk</li>
+    </ol>
+    <span class="eyebrow">{{ zakelijk.hero.boventitel }}</span>
+    <h1>
+      {%- set regels = zakelijk.hero.titel.split("\n") -%}
+      {%- for regel in regels %}{% if loop.last and not loop.first %}<br><span class="accent">{{ regel }}</span>{% else %}{{ regel }}{% endif %}{% endfor -%}
+    </h1>
+    <p class="lead">{{ zakelijk.hero.tekst }}</p>
+    <div class="btn-row" style="margin-top:1.8rem">
+      {%- if site.email %}
+      <a class="btn btn--gold" href="mailto:{{ site.email }}?subject={{ 'Kennismaking zakelijk' | urlencode }}">{{ icon("mail") }} {{ zakelijk.hero.knop }}</a>
+      {%- endif %}
+      <a class="btn btn--ghost" href="tel:{{ site.telefoon | telLink }}">{{ icon("phone") }} {{ site.telefoon }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--mist" aria-labelledby="zk-herken-titel">
+  <div class="wrap herken">
+    <div class="reveal">
+      <span class="eyebrow">Voor werkgevers</span>
+      <h2 id="zk-herken-titel">{{ zakelijk.herkenning.titel }}</h2>
+      <p class="herken__slot">{{ zakelijk.herkenning.slot }}</p>
+    </div>
+    <ul class="checklist">
+      {%- for punt in zakelijk.herkenning.punten %}
+      <li class="reveal" style="--delay: {{ loop.index0 * 0.08 }}s">{{ punt }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="zk-visie-titel">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">{{ zakelijk.visie.boventitel }}</span>
+      <h2 id="zk-visie-titel">{{ zakelijk.visie.titel }}</h2>
+      {{ zakelijk.visie.tekst | md | safe }}
+      <div class="pillars">
+        {%- for p in zakelijk.visie.pijlers %}
+        <div class="pillar">
+          <span class="pillar__num">0{{ loop.index }}</span>
+          <h3>{{ p.titel }}</h3>
+          <p>{{ p.tekst }}</p>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+    <div class="media-frame reveal" style="--delay:.15s">
+      <img src="/assets/img/sfeer/losse-sessie.jpg" alt="Close-up van een frisgroen blad met dauwdruppels in zacht ochtendlicht" sizes="(max-width: 900px) 460px, 560px" eleventy:widths="480,800,1100">
+    </div>
+  </div>
+</section>
+
+<section class="section section--sand" aria-labelledby="zk-meten-titel">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">{{ zakelijk.metingen.boventitel }}</span>
+      <h2 id="zk-meten-titel">{{ zakelijk.metingen.titel }}</h2>
+      <p class="lead">{{ zakelijk.metingen.intro }}</p>
+    </div>
+    <div class="info-grid">
+      {%- for m in zakelijk.metingen.items %}
+      <div class="info reveal" style="--delay: {{ loop.index0 * 0.1 }}s">
+        <div class="info__icon">{{ icon(m.icoon) }}</div>
+        <h3>{{ m.titel }}</h3>
+        <p>{{ m.tekst }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--mist" aria-labelledby="zk-aanbod-titel">
+  <div class="wrap">
+    <div class="section__head section__head--center reveal">
+      <span class="eyebrow">Aanbod</span>
+      <h2 id="zk-aanbod-titel">Wat kan ik voor jullie <span class="accent">betekenen?</span></h2>
+      <p class="lead">Een individueel traject voor medewerkers die vastlopen, workshops voor het hele team, of een combinatie.</p>
+    </div>
+    <div class="cards{% if collections.zakelijk.length == 2 %} cards--twee{% endif %}">
+      {%- for item in collections.zakelijk %}
+      {% include "card.njk" %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="zk-waarom-titel">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Ademruimte</span>
+      <h2 id="zk-waarom-titel">{{ zakelijk.waarom.titel }}</h2>
+    </div>
+    <div class="info-grid">
+      {%- set iconen = ["chat", "pulse", "pin"] %}
+      {%- for p in zakelijk.waarom.punten %}
+      <div class="info reveal" style="--delay: {{ loop.index0 * 0.1 }}s">
+        <div class="info__icon">{{ icon(iconen[loop.index0] or "chat") }}</div>
+        <h3>{{ p.titel }}</h3>
+        <p>{{ p.tekst }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--mist" aria-labelledby="zk-stappen-titel">
+  <div class="wrap">
+    <div class="section__head section__head--center reveal">
+      <span class="eyebrow">Werkwijze</span>
+      <h2 id="zk-stappen-titel">{{ zakelijk.stappen.titel }}</h2>
+    </div>
+    <ol class="steps steps--vier">
+      {%- for stap in zakelijk.stappen.items %}
+      <li class="step reveal" style="--delay: {{ loop.index0 * 0.12 }}s">
+        <h3>{{ stap.titel }}</h3>
+        <p>{{ stap.tekst }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="zk-vertrouwelijk-titel">
+  <div class="wrap--narrow">
+    <div class="callout reveal">
+      <h2 id="zk-vertrouwelijk-titel">{{ zakelijk.vertrouwelijk.titel }}</h2>
+      <p>{{ zakelijk.vertrouwelijk.tekst }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--mist" aria-labelledby="zk-faq-titel">
+  <div class="wrap--narrow">
+    <div class="section__head section__head--center reveal">
+      <span class="eyebrow">Veelgestelde vragen</span>
+      <h2 id="zk-faq-titel">Vragen van werkgevers</h2>
+    </div>
+    <div class="faq">
+      {%- for item in zakelijk.faq %}
+      <details class="reveal">
+        <summary>{{ item.vraag }}</summary>
+        <div class="faq__answer"><p>{{ item.antwoord | safe }}</p></div>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "cta-zakelijk.njk" %}

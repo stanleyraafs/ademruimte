@@ -1,0 +1,5 @@
+{
+  "layout": "aanbod.njk",
+  "markt": "zakelijk",
+  "permalink": "/zakelijk/{{ page.fileSlug }}/"
+}

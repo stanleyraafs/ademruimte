@@ -1,6 +1,7 @@
 [
   { "label": "Wat is ademwerk", "url": "/ademwerk/" },
   { "label": "Aanbod", "url": "/aanbod/" },
+  { "label": "Zakelijk", "url": "/zakelijk/" },
   { "label": "Over Stanley", "url": "/over-stanley/" },
   { "label": "Contact", "url": "/kennismaken/" }
 ]

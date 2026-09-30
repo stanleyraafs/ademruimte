@@ -55,6 +55,44 @@ collections:
       - { label: "SEO: paginatitel", name: seoTitel, widget: string, required: false, hint: "Titel in Google. Liefst met plaatsnaam, max. ± 60 tekens." }
       - { label: "SEO: omschrijving", name: description, widget: text, required: false, hint: "Tekst onder de titel in Google, ± 150 tekens." }
 
+  - name: zakelijk
+    label: Zakelijk aanbod
+    label_singular: Zakelijke dienst
+    description: Diensten voor organisaties (MKB). De volgorde bepaal je met het veld Volgorde.
+    folder: src/zakelijk
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    summary: "{{volgorde}}. {{title}}"
+    sortable_fields: [volgorde, title]
+    fields:
+      - { label: Naam, name: title, widget: string }
+      - { label: Bovenregel, name: boventitel, widget: string, required: false, hint: "Bijv. Individueel traject · 12 weken" }
+      - { label: Volgorde, name: volgorde, widget: number, value_type: int, default: 9 }
+      - { label: Korte omschrijving (op de kaart), name: kort, widget: text }
+      - { label: Prijs, name: prijs, widget: string, hint: "Bijv. Op aanvraag" }
+      - { label: Toelichting bij prijs, name: prijsNotitie, widget: string }
+      - { label: Toelichting op de kaart (kort), name: kaartNotitie, widget: string, required: false }
+      - { label: Duur, name: duur, widget: string, required: false }
+      - { label: Waar, name: waar, widget: string, required: false }
+      - { label: Foto, name: afbeelding, widget: image }
+      - { label: Welkomsttekst, name: body, widget: markdown, buttons: [bold, italic, link, bulleted-list] }
+      - { label: "Kop bij 'Herken je dit?'", name: herkenTitel, widget: string, required: false }
+      - { label: "Herken je dit? (punten)", name: herken, widget: list, field: { label: Punt, name: punt, widget: string } }
+      - { label: Voor wie, name: voorWie, widget: text }
+      - { label: "Kop bij het verloop", name: verloopTitel, widget: string, required: false }
+      - label: Verloop / fasen
+        name: verloop
+        widget: list
+        summary: "{{fields.titel}}"
+        fields:
+          - { label: Titel, name: titel, widget: string }
+          - { label: Tekst, name: tekst, widget: text }
+      - { label: "Kop bij 'Wat krijg je'", name: watKrijgJeTitel, widget: string, required: false }
+      - { label: "Wat krijg je (punten)", name: watKrijgJe, widget: list, field: { label: Punt, name: punt, widget: string } }
+      - { label: "SEO: paginatitel", name: seoTitel, widget: string, required: false }
+      - { label: "SEO: omschrijving", name: description, widget: text, required: false }
+
   - name: paginas
     label: Pagina's
     files:
@@ -81,6 +119,103 @@ collections:
         label: Privacyverklaring
         file: src/privacy.md
         fields: *pagina
+
+      - name: zakelijk-overzicht
+        label: Zakelijk (overzichtspagina)
+        file: src/_data/zakelijk.json
+        fields:
+          - { label: "SEO: paginatitel", name: seoTitel, widget: string }
+          - { label: "SEO: omschrijving", name: description, widget: text }
+          - { label: "Werkgebied", name: regio, widget: string }
+          - { label: "Soort dienst (voor Google)", name: dienstType, widget: string }
+          - { label: "Tekst bij 'Aanvragen' op de dienstpagina's", name: aanvragen, widget: text }
+          - label: Bovenaan
+            name: hero
+            widget: object
+            fields:
+              - { label: "Bovenregel", name: boventitel, widget: string }
+              - { label: "Kop (de 2e regel wordt groen; gebruik Enter)", name: titel, widget: text }
+              - { label: "Tekst", name: tekst, widget: text }
+              - { label: "Knoptekst", name: knop, widget: string }
+          - label: Herken je dit?
+            name: herkenning
+            widget: object
+            fields:
+              - { label: "Titel", name: titel, widget: string }
+              - { label: "Punten", name: punten, widget: list, field: { label: Punt, name: punt, widget: string } }
+              - { label: "Slotzin", name: slot, widget: text }
+          - label: Visie
+            name: visie
+            widget: object
+            fields:
+              - { label: "Bovenregel", name: boventitel, widget: string }
+              - { label: "Titel", name: titel, widget: string }
+              - { label: Tekst, name: tekst, widget: markdown, buttons: [bold, italic] }
+              - label: Pijlers
+                name: pijlers
+                widget: list
+                summary: "{{fields.titel}}"
+                fields:
+              - { label: Titel, name: titel, widget: string }
+              - { label: Tekst, name: tekst, widget: text }
+          - label: Metingen
+            name: metingen
+            widget: object
+            fields:
+              - { label: "Bovenregel", name: boventitel, widget: string }
+              - { label: "Titel", name: titel, widget: string }
+              - { label: "Intro", name: intro, widget: text }
+              - label: Metingen
+                name: items
+                widget: list
+                summary: "{{fields.titel}}"
+                fields:
+                  - { label: Icoon, name: icoon, widget: select, options: [clipboard, wind, pulse, chat, pin, calendar] }
+                  - { label: Titel, name: titel, widget: string }
+                  - { label: Tekst, name: tekst, widget: text }
+          - label: Waarom Ademruimte
+            name: waarom
+            widget: object
+            fields:
+              - { label: "Titel", name: titel, widget: string }
+              - label: Punten
+                name: punten
+                widget: list
+                summary: "{{fields.titel}}"
+                fields:
+                  - { label: Titel, name: titel, widget: string }
+                  - { label: Tekst, name: tekst, widget: text }
+          - label: Werkwijze
+            name: stappen
+            widget: object
+            fields:
+              - { label: "Titel", name: titel, widget: string }
+              - label: Stappen
+                name: items
+                widget: list
+                summary: "{{fields.titel}}"
+                fields:
+                  - { label: Titel, name: titel, widget: string }
+                  - { label: Tekst, name: tekst, widget: text }
+          - label: Vertrouwelijkheid
+            name: vertrouwelijk
+            widget: object
+            fields:
+              - { label: Titel, name: titel, widget: string }
+              - { label: Tekst, name: tekst, widget: text }
+          - label: Veelgestelde vragen
+            name: faq
+            widget: list
+            summary: "{{fields.vraag}}"
+            fields:
+              - { label: Vraag, name: vraag, widget: string }
+              - { label: Antwoord, name: antwoord, widget: text }
+          - label: Afsluitende oproep
+            name: cta
+            widget: object
+            fields:
+              - { label: Titel, name: titel, widget: string }
+              - { label: Tekst, name: tekst, widget: text }
 
   - name: instellingen
     label: Instellingen & homepage
@@ -164,6 +299,14 @@ collections:
               - { label: Getal, name: getal, widget: string }
               - { label: Titel, name: titel, widget: string }
               - { label: Tekst, name: tekst, widget: text }
+          - label: Blok voor organisaties
+            name: zakelijk
+            widget: object
+            fields:
+              - { label: Bovenregel, name: boventitel, widget: string }
+              - { label: Titel, name: titel, widget: string }
+              - { label: Tekst, name: tekst, widget: text }
+              - { label: Knoptekst, name: knop, widget: string }
           - label: Zo werkt het
             name: stappen
             widget: object

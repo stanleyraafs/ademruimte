@@ -114,6 +114,22 @@ eleventyComputed:
   </div>
 </section>
 
+<section class="section section--sand" aria-labelledby="zakelijk-titel">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">{{ home.zakelijk.boventitel }}</span>
+      <h2 id="zakelijk-titel">{{ home.zakelijk.titel }}</h2>
+      <p class="lead">{{ home.zakelijk.tekst }}</p>
+      <a class="btn btn--line" href="/zakelijk/" style="margin-top:1.5rem">{{ home.zakelijk.knop }}</a>
+    </div>
+    <ul class="checklist reveal" style="--delay:.15s">
+      {%- for item in collections.zakelijk %}
+      <li><a href="{{ item.url }}"><strong>{{ item.data.title }}</strong></a><br>{{ item.data.kort }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
 <section class="section section--white" aria-labelledby="stappen-titel">
   <div class="wrap">
     <div class="section__head section__head--center reveal">

@@ -31,6 +31,7 @@ Draai `npm run build` **niet** terwijl `npm run dev` loopt. Twee processen die t
 ## Afspraken met de klant (niet van afwijken zonder overleg)
 
 - **Taal en toon:** Nederlands, de **jij-vorm**, warm, persoonlijk en nuchter. Geen zweverige taal.
+- **Twee doelgroepen:** particulieren (de homepage en `/aanbod/`) en organisaties/MKB (`/zakelijk/`). Het zakelijke deel is biologische stresscoaching en ademtherapie, met metingen (CSR-vragenlijst, CP-test, HRV-biofeedback), zakelijker van toon en zonder de melding over contant betalen.
 - **Positionering:** *resetcoach*. De site richt zich op mensen die vastlopen, overspannen zijn, in of tegen een burn-out zitten, en op traumaverwerking. Ademwerk is "voor iedereen", maar de focus ligt hierop.
 - **Tarief:** €150 per uur, inclusief btw.
 - **Alleen contant betalen.** Dit moet **expliciet** op de site staan. De tekst komt uit `site.betalen`.
@@ -84,6 +85,8 @@ src/
   _data/nav.json         hoofdmenu
   _includes/             base.njk (layout, SEO, header/footer), page.njk, aanbod.njk, card.njk, cta.njk, icons.njk
   aanbod/*.md            één bestand per dienst (CMS: Aanbod); aanbod.json zet layout en permalink
+  zakelijk/*.md          zakelijke diensten (CMS: Zakelijk aanbod); zelfde layout aanbod.njk met markt: zakelijk
+  _data/zakelijk.json    teksten van /zakelijk/ (CMS: Pagina's > Zakelijk)
   index.njk              homepage
   ademwerk.md, over-stanley.md, aanbod-overzicht.njk, kennismaken.njk, 404.njk, sitemap.njk, robots.njk
   admin/                 Decap CMS (index.html + config.yml)

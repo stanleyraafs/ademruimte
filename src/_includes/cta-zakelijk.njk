@@ -1,0 +1,18 @@
+{%- from "icons.njk" import icon -%}
+{#- Afsluitende oproep voor organisaties: mailen voor een voorstel, zonder de melding over contant betalen -#}
+<section class="section section--jungle on-dark cta" aria-labelledby="cta-titel">
+  <div class="section__bg"><img src="{{ site.bladerFoto }}" alt="" sizes="100vw" eleventy:widths="800,1400,2000"></div>
+  {%- if site.logo %}<span class="cta__enso" style="--mark: url('{{ site.logo }}')" aria-hidden="true"></span>{% endif %}
+  <div class="wrap--narrow reveal">
+    <span class="eyebrow">Voor organisaties</span>
+    <h2 id="cta-titel">{{ zakelijk.cta.titel }}</h2>
+    <p class="lead">{{ zakelijk.cta.tekst }}</p>
+    <div class="btn-row">
+      {%- if site.email %}
+      <a class="btn btn--gold" href="mailto:{{ site.email }}?subject={{ 'Kennismaking zakelijk' | urlencode }}">{{ icon("mail") }} Mail voor een kennismaking</a>
+      {%- endif %}
+      <a class="btn btn--ghost" href="tel:{{ site.telefoon | telLink }}">{{ icon("phone") }} Bel {{ site.telefoon }}</a>
+    </div>
+    <p class="cta__contact">Actief in {{ zakelijk.regio }}</p>
+  </div>
+</section>

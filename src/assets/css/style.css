@@ -1287,6 +1287,12 @@ em {
   width: 20px;
   height: 20px;
 }
+/* Twee kaarten (zakelijk aanbod): gecentreerd in plaats van een gat rechts */
+.cards--twee {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 860px;
+  margin-inline: auto;
+}
 .cards__note {
   margin-top: 2.2rem;
   text-align: center;
@@ -1306,6 +1312,18 @@ em {
   gap: clamp(1.2rem, 3vw, 2.5rem);
   counter-reset: step;
   position: relative;
+}
+/* Vier stappen (zakelijke werkwijze) naast elkaar; op tablet twee per rij */
+.steps--vier {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1080px) {
+  .steps--vier {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .steps--vier::before {
+    display: none;
+  }
 }
 .steps::before {
   content: "";

@@ -80,3 +80,6 @@ Nog te doen, alleen op aanwijzing van de eigenaar:
 - Na het lezen van de huisstijl: fonts en kleuren eventueel aanpassen.
 - Logo (enso met tekens) in header, footer, favicon, app-iconen, deelafbeelding en groot en bijna onzichtbaar achter de afsluitende oproep. In de header ontstaat het logo naast de naam: eerst de enso als kwaststreek, dan de tekens vanuit het midden (altijd op de homepage, elders alleen op de eerste pagina van een bezoek). Gemaakt met `npm run logo`.
 - Merknaam gewijzigd van Ademwerk naar **Ademruimte** (`site.merk`, `site.naam`). De repo en het domein heten nog `ademwerk`.
+- **Zakelijk deel** (`/zakelijk/`, op basis van het ondernemingsplan): overzichtspagina, twee diensten (Executive Stress & Reversal, Workshops & teamsessies), menu-item, blok op de homepage, link in footer en op de contactpagina. Alles beheerbaar in het CMS.
+  - **Te verifiëren:** betaalwijze voor bedrijven (de footer zegt overal "Betaling uitsluitend contant"), de passage over vertrouwelijkheid en terugkoppeling aan werkgevers, en of de nulmeting gratis is.
+  - Nu met bestaande natuurfoto's; zakelijke foto's (workshop, op locatie) zouden het versterken.

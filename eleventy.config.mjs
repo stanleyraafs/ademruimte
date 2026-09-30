@@ -66,9 +66,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addAsyncShortcode("heroPicture", heroPicture);
   eleventyConfig.addAsyncShortcode("imageUrl", imageUrl);
 
-  eleventyConfig.addCollection("aanbod", (api) =>
-    api.getFilteredByGlob("src/aanbod/*.md").sort((a, b) => (a.data.volgorde || 99) - (b.data.volgorde || 99))
-  );
+  const opVolgorde = (a, b) => (a.data.volgorde || 99) - (b.data.volgorde || 99);
+  eleventyConfig.addCollection("aanbod", (api) => api.getFilteredByGlob("src/aanbod/*.md").sort(opVolgorde));
+  eleventyConfig.addCollection("zakelijk", (api) => api.getFilteredByGlob("src/zakelijk/*.md").sort(opVolgorde));
 
   // "06 22 37 97 22" -> "+31622379722"
   eleventyConfig.addFilter("telLink", (nr = "") => {

@@ -2,10 +2,15 @@
 layout: base.njk
 ---
 {%- from "icons.njk" import icon -%}
+{#- Eén layout voor beide doelgroepen: particulier (src/aanbod) en zakelijk (src/zakelijk, markt: zakelijk) -#}
+{%- set isZakelijk = markt == "zakelijk" -%}
+{%- set ouderNaam = "Zakelijk" if isZakelijk else "Aanbod" -%}
+{%- set ouderUrl = "/zakelijk/" if isZakelijk else "/aanbod/" -%}
+{%- set lijst = collections.zakelijk if isZakelijk else collections.aanbod -%}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-  {"@type":"Service","name":{{ title | dump | safe }},"description":{{ description | dump | safe }},"serviceType":"Somatisch ademwerk","areaServed":"Beesel en omgeving","provider":{"@id":"{{ site.url }}/#bedrijf"},"offers":{"@type":"Offer","priceCurrency":"EUR","description":{{ (prijs ~ " " ~ prijsNotitie) | dump | safe }}}},
-  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"Aanbod","item":"{{ site.url }}/aanbod/"},{"@type":"ListItem","position":3,"name":{{ title | dump | safe }},"item":"{{ site.url }}{{ page.url }}"}]}
+  {"@type":"Service","name":{{ title | dump | safe }},"description":{{ description | dump | safe }},"serviceType":{{ (zakelijk.dienstType if isZakelijk else "Somatisch ademwerk") | dump | safe }},"areaServed":{{ (zakelijk.regio if isZakelijk else "Beesel en omgeving") | dump | safe }},{% if isZakelijk %}"audience":{"@type":"BusinessAudience","name":"MKB-bedrijven"},{% endif %}"provider":{"@id":"{{ site.url }}/#bedrijf"},"offers":{"@type":"Offer","priceCurrency":"EUR","description":{{ (prijs ~ " " ~ prijsNotitie) | dump | safe }}}},
+  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"},{"@type":"ListItem","position":2,"name":"{{ ouderNaam }}","item":"{{ site.url }}{{ ouderUrl }}"},{"@type":"ListItem","position":3,"name":{{ title | dump | safe }},"item":"{{ site.url }}{{ page.url }}"}]}
 ]}
 </script>
 <section class="page-hero on-dark">
@@ -13,10 +18,10 @@ layout: base.njk
   <div class="wrap">
     <ol class="breadcrumbs">
       <li><a href="/">Home</a></li>
-      <li><a href="/aanbod/">Aanbod</a></li>
+      <li><a href="{{ ouderUrl }}">{{ ouderNaam }}</a></li>
       <li aria-current="page">{{ title }}</li>
     </ol>
-    <span class="eyebrow">Aanbod</span>
+    <span class="eyebrow">{{ boventitel or ouderNaam }}</span>
     <h1>{{ title }}</h1>
     <p class="lead">{{ kort }}</p>
   </div>
@@ -32,7 +37,7 @@ layout: base.njk
       {%- if herken %}
       <section class="reveal">
         <span class="eyebrow">Herken je dit?</span>
-        <h2>Misschien is dit iets voor jou</h2>
+        <h2>{{ herkenTitel or "Misschien is dit iets voor jou" }}</h2>
         <ul class="checklist">
           {%- for punt in herken %}
           <li>{{ punt }}</li>
@@ -52,7 +57,7 @@ layout: base.njk
       {%- if verloop %}
       <section class="reveal">
         <span class="eyebrow">Zo verloopt het</span>
-        <h2>Wat kun je verwachten?</h2>
+        <h2>{{ verloopTitel or "Wat kun je verwachten?" }}</h2>
         <ol class="timeline">
           {%- for stap in verloop %}
           <li><h3>{{ stap.titel }}</h3><p>{{ stap.tekst }}</p></li>
@@ -64,7 +69,7 @@ layout: base.njk
       {%- if watKrijgJe %}
       <section class="reveal">
         <span class="eyebrow">Wat krijg je</span>
-        <h2>Dit krijg je</h2>
+        <h2>{{ watKrijgJeTitel or "Dit krijg je" }}</h2>
         <ul class="checklist">
           {%- for punt in watKrijgJe %}
           <li>{{ punt }}</li>
@@ -74,7 +79,7 @@ layout: base.njk
       {%- endif %}
     </div>
 
-    <aside class="aside-card" aria-label="Investering en boeken">
+    <aside class="aside-card" aria-label="Investering en contact">
       <div class="aside-card__media"><img src="{{ afbeelding }}" alt="" sizes="(max-width: 1080px) 520px, 360px" eleventy:widths="480,800"></div>
       <div class="aside-card__body">
         <span class="eyebrow">Investering</span>
@@ -82,11 +87,22 @@ layout: base.njk
         <dl>
           {%- if duur %}<div><dt>Duur</dt><dd>{{ duur }}</dd></div>{% endif %}
           {%- if waar %}<div><dt>Waar</dt><dd>{{ waar }}</dd></div>{% endif %}
+          {%- if isZakelijk %}
+          <div><dt>Aanvragen</dt><dd>{{ zakelijk.aanvragen }}</dd></div>
+          {%- else %}
           <div><dt>Boeken</dt><dd>Bel, app of mail. Het kennismakingsgesprek is gratis.</dd></div>
+          {%- endif %}
         </dl>
+        {%- if isZakelijk and site.email %}
+        <a class="btn btn--gold" href="mailto:{{ site.email }}?subject={{ ('Voorstel ' ~ title) | urlencode }}">{{ icon("mail") }} Vraag een voorstel aan</a>
+        <a class="btn btn--ghost" href="tel:{{ site.telefoon | telLink }}">{{ icon("phone") }} Bel {{ site.telefoon }}</a>
+        {%- else %}
         <a class="btn btn--gold" href="tel:{{ site.telefoon | telLink }}">{{ icon("phone") }} Bel of app {{ site.telefoon }}</a>
         <a class="btn btn--ghost" href="/kennismaken/">Gratis kennismaking</a>
+        {%- endif %}
+        {%- if not isZakelijk %}
         <p class="cash-note">{{ icon("cash") }} <span>{{ site.betalen }}</span></p>
+        {%- endif %}
       </div>
     </aside>
   </div>
@@ -96,14 +112,14 @@ layout: base.njk
   <div class="wrap">
     <div class="section__head reveal">
       <span class="eyebrow">Ook interessant</span>
-      <h2>Ander aanbod</h2>
+      <h2>{{ "Meer voor organisaties" if isZakelijk else "Ander aanbod" }}</h2>
     </div>
     <div class="cards">
-      {%- for item in collections.aanbod %}{% if item.url != page.url %}
+      {%- for item in lijst %}{% if item.url != page.url %}
       {% include "card.njk" %}
       {%- endif %}{% endfor %}
     </div>
   </div>
 </section>
 
-{% include "cta.njk" %}
+{% if isZakelijk %}{% include "cta-zakelijk.njk" %}{% else %}{% include "cta.njk" %}{% endif %}
