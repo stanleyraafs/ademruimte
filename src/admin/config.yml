@@ -107,7 +107,22 @@ collections:
           - { label: Btw-vermelding, name: btw, widget: string }
           - { label: Betaaltekst kort, name: betalenKort, widget: string, hint: "Korte regel in footer, afsluitende oproep en contactpagina." }
           - { label: Betaaltekst, name: betalen, widget: text, hint: "Staat overal waar het over betalen gaat." }
-          - { label: Logo (optioneel), name: logo, widget: image, required: false, hint: "Leeg laten = tekstlogo met long-icoon." }
+          - { label: Logo (optioneel), name: logo, widget: image, required: false, hint: "Transparante PNG; de kleur wordt automatisch aangepast. Leeg laten = long-icoon. Nieuw logo? Laat de ontwikkelaar npm run logo draaien voor de losse lagen en iconen." }
+          - label: Logo-animatie in de hero
+            name: heroLogo
+            widget: object
+            collapsed: true
+            hint: "De cirkel wordt om het longmeer 'geschilderd'. Positie en grootte in % van de foto."
+            fields:
+              - { label: Tonen, name: toon, widget: boolean, default: true }
+              - { label: Cirkel (losse laag), name: ring, widget: image }
+              - { label: Tekens (losse laag), name: tekens, widget: image, required: false }
+              - { label: "Horizontaal (%)", name: x, widget: number, value_type: float }
+              - { label: "Verticaal (%)", name: y, widget: number, value_type: float }
+              - { label: "Grootte (%)", name: grootte, widget: number, value_type: float }
+              - { label: "Mobiel: horizontaal (%)", name: xMobiel, widget: number, value_type: float, required: false }
+              - { label: "Mobiel: verticaal (%)", name: yMobiel, widget: number, value_type: float, required: false }
+              - { label: "Mobiel: grootte (%)", name: grootteMobiel, widget: number, value_type: float, required: false }
           - { label: Hero-foto (liggend), name: heroFoto, widget: image }
           - { label: Hero-foto mobiel (staand), name: heroFotoMobiel, widget: image, required: false }
           - { label: Bladerfoto (achtergrond donkere blokken), name: bladerFoto, widget: image }

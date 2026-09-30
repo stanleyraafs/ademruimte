@@ -356,9 +356,21 @@ em {
   font-weight: 500;
   font-variation-settings: "SOFT" 100;
 }
-.logo img {
-  max-height: 46px;
-  width: auto;
+/* Beeldmerk: transparante PNG als masker, zodat de inktkleur bij het thema past */
+.logo__mark {
+  width: 46px;
+  height: 46px;
+  background: var(--sand-100);
+  -webkit-mask: var(--mark) center / contain no-repeat;
+  mask: var(--mark) center / contain no-repeat;
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.logo:hover .logo__mark {
+  transform: rotate(-12deg);
+}
+.logo--footer .logo__mark {
+  width: 64px;
+  height: 64px;
 }
 .nav {
   display: flex;
@@ -520,6 +532,81 @@ em {
 .hero__media img {
   object-fit: cover;
   object-position: 50% 55%;
+}
+/* Enso om het longmeer: wordt met een penseelstreek "geschilderd" en ademt daarna mee met de foto.
+   Positie rekent object-fit: cover na (foto 3:2, object-position 50% 55%); x, y en grootte in % van de foto. */
+@property --enso-p {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.hero__media {
+  container-type: size;
+  --ratio: 1.5;
+  --pos-y: 0.55;
+}
+.hero__enso {
+  --dw: max(100cqw, 100cqh * var(--ratio));
+  --dh: calc(var(--dw) / var(--ratio));
+  position: absolute;
+  z-index: 1;
+  left: calc((100cqw - var(--dw)) * 0.5 + var(--dw) * var(--x) / 100);
+  top: calc((100cqh - var(--dh)) * var(--pos-y) + var(--dh) * var(--y) / 100);
+  width: calc(var(--dw) * var(--d) / 100);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  filter: drop-shadow(0 0 22px rgba(5, 23, 13, 0.45));
+  pointer-events: none;
+}
+.hero__enso span {
+  position: absolute;
+  inset: 0;
+  background: var(--sand-100);
+}
+.hero__enso .hero__enso-ring {
+  opacity: 0.88;
+  -webkit-mask: var(--ring) center / contain no-repeat, conic-gradient(from 195deg, #000 var(--enso-p), transparent calc(var(--enso-p) + 16deg));
+  -webkit-mask-composite: source-in;
+  mask: var(--ring) center / contain no-repeat, conic-gradient(from 195deg, #000 var(--enso-p), transparent calc(var(--enso-p) + 16deg));
+  mask-composite: intersect;
+  animation: enso-draw 3.2s cubic-bezier(0.5, 0.05, 0.3, 1) 0.6s both;
+}
+.hero__enso .hero__enso-tekens {
+  -webkit-mask: var(--tekens) center / contain no-repeat;
+  mask: var(--tekens) center / contain no-repeat;
+  background: linear-gradient(180deg, var(--sand-100), var(--sand-300));
+  animation: enso-tekens 2.4s ease-out 3.1s both;
+}
+@keyframes enso-draw {
+  from {
+    --enso-p: -16deg;
+  }
+  to {
+    --enso-p: 360deg;
+  }
+}
+@keyframes enso-tekens {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(2%);
+  }
+  to {
+    opacity: 0.8;
+    filter: blur(0);
+    transform: none;
+  }
+}
+/* Staande foto op smalle schermen (zelfde media query als de <source> in heroPicture) */
+@media (max-aspect-ratio: 4/5) {
+  .hero__media {
+    --ratio: 0.6667;
+  }
+  .hero__enso {
+    left: calc((100cqw - var(--dw)) * 0.5 + var(--dw) * var(--x-m) / 100);
+    top: calc((100cqh - var(--dh)) * var(--pos-y) + var(--dh) * var(--y-m) / 100);
+    width: calc(var(--dw) * var(--d-m) / 100);
+  }
 }
 /* WebGL-laag: rollende mist en levend water (zie hero.js) */
 .hero__canvas {
@@ -1407,6 +1494,32 @@ em {
 /* ---------- CTA-band ---------- */
 .cta {
   text-align: center;
+  overflow: hidden;
+}
+/* Groot, bijna onzichtbaar beeldmerk achter de afsluitende oproep */
+.cta__enso {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: min(92vw, 760px);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: var(--sand-100);
+  opacity: 0.07;
+  -webkit-mask: var(--mark) center / contain no-repeat;
+  mask: var(--mark) center / contain no-repeat;
+  animation: enso-turn 180s linear infinite;
+  pointer-events: none;
+}
+.cta > .wrap--narrow {
+  position: relative;
+  z-index: 1;
+}
+@keyframes enso-turn {
+  to {
+    rotate: 360deg;
+  }
 }
 .cta h2 {
   font-size: clamp(2.3rem, 1.5rem + 3.2vw, 4.2rem);
@@ -1801,5 +1914,8 @@ a.contact-card:hover {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+  .hero__enso span {
+    animation-delay: 0s !important;
   }
 }

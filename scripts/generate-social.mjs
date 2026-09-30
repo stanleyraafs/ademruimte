@@ -21,6 +21,10 @@ const fonts = `
 
 // Het long-icoon uit het favicon, zonder afgeronde hoeken (iOS rondt zelf af)
 const lung = readFileSync("src/favicon.svg", "utf8").replace(/ rx="\d+"/, "");
+// Met een logo uit het CMS: dat beeldmerk, zandkleurig ingekleurd (net als op de site)
+const merk = site.logo
+  ? `<i class="logo" style="-webkit-mask-image: url('${file(site.logo.replace(/^\//, "src/"))}')"></i>`
+  : lung;
 
 const og = `<!doctype html><meta charset="utf-8"><style>${fonts}
   body { width: 1200px; height: 630px; overflow: hidden; background: #0a2718; font-family: "DM Sans", sans-serif; color: #fff; }
@@ -30,6 +34,7 @@ const og = `<!doctype html><meta charset="utf-8"><style>${fonts}
   .tekst { position: absolute; left: 80px; top: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; justify-content: center; }
   .merk { display: flex; align-items: center; gap: 18px; margin-bottom: 44px; }
   .merk svg { width: 64px; height: 70px; }
+  .merk .logo { width: 84px; height: 84px; background: #f7f0e1; -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; }
   .merk span { font-size: 22px; letter-spacing: .32em; text-transform: uppercase; color: #e0bb62; font-weight: 600; }
   h1 { font-family: Fraunces, serif; font-weight: 500; font-size: 84px; line-height: 1.02; font-variation-settings: "SOFT" 100, "WONK" 0; }
   h1 em { display: block; color: #86d99a; font-weight: 400; font-variation-settings: "SOFT" 100, "WONK" 1; }
@@ -38,7 +43,7 @@ const og = `<!doctype html><meta charset="utf-8"><style>${fonts}
 </style>
 <div class="foto"></div><div class="schaduw"></div>
 <div class="tekst">
-  <div class="merk">${lung}<span>Ademwerk</span></div>
+  <div class="merk">${merk}<span>Ademwerk</span></div>
   <h1>Even op reset.<em>Terug naar je adem.</em></h1>
   <p>${esc(site.coach)} · ${esc(site.rol)} in ${esc(site.plaats)}</p>
   <div class="knop">Gratis kennismaking</div>
@@ -73,5 +78,6 @@ async function render(html, name, width, height, type, out) {
 }
 
 await render(og, "og.html", 1200, 630, "jpeg", "src/assets/img/deelafbeelding.jpg");
-await render(icon, "icon.html", 180, 180, "png", "src/apple-touch-icon.png");
+// Met een logo maakt npm run logo de app-iconen; anders het long-icoon
+if (!site.logo) await render(icon, "icon.html", 180, 180, "png", "src/apple-touch-icon.png");
 await browser.close();

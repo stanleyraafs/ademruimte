@@ -6,6 +6,7 @@
     "dev": "eleventy --serve --port 8080",
     "build": "eleventy",
     "art": "node scripts/generate-art.mjs",
+    "logo": "node scripts/generate-logo.mjs",
     "social": "node scripts/generate-social.mjs",
     "check:links": "node scripts/dev/check-links.mjs",
     "check:hero": "node scripts/dev/hero-check.mjs",

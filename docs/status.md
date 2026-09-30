@@ -46,7 +46,7 @@ Bevestigd door de eigenaar: achternaam **Raafs**, e-mailadres **Stanley.raafs@gm
 
 ## Nog aan te leveren door de klant
 
-- **Logo en huisstijl.** Ze bestaan al. Upload het logo via het CMS in het veld `site.logo`, en stem de kleurtokens eventueel af op de huisstijl.
+- **Huisstijl.** Het logo (enso) is verwerkt. Stem de kleurtokens eventueel nog af op de rest van de huisstijl.
 - **Portretfoto** voor "Over mij" (`home.over.foto`), eventueel ook foto's van de praktijkruimte.
 - **Persoonlijk verhaal** voor de pagina Over Stanley.
 - **Reviews** zodra die er zijn. Er is nog geen sectie voor; die moet dan gebouwd worden, als CMS-lijst in `home.json` en eventueel per dienst.
@@ -69,7 +69,7 @@ Nog te doen, alleen op aanwijzing van de eigenaar:
 
 - De hero-WebGL testen op echte telefoons (iOS Safari en Android Chrome), zowel de framerate als de batterij. Headless testen gebeurt alleen met software-rendering.
 - Een sectie met reviews en eventueel een pagina met een agenda voor de groepssessies.
-- Als het logo binnen is: `npm run social` aanpassen en opnieuw draaien (deelafbeelding en app-icoon).
+- Nieuw logo? Origineel in `_notes/logo/logo-origineel.jpg` zetten en `npm run logo` en daarna `npm run social` draaien (losse lagen, iconen, deelafbeelding).
 - Lettertypes: Fraunces "full" (121 KB) is nodig voor de assen SOFT en WONK uit het ontwerp. Een lichtere variant kan alleen als het ontwerp mag veranderen.
 
 ## Toegevoegd op 30 september 2026
@@ -78,3 +78,4 @@ Nog te doen, alleen op aanwijzing van de eigenaar:
 - Deelafbeelding voor social media (`src/assets/img/deelafbeelding.jpg`) en app-icoon (`src/apple-touch-icon.png`), gemaakt met `npm run social`.
 - Hero op telefoons en tablets: WebGL op 30 fps; bij databesparing geen WebGL.
 - Na het lezen van de huisstijl: fonts en kleuren eventueel aanpassen.
+- Logo (enso met tekens) in header, footer, favicon, app-iconen, deelafbeelding en groot en bijna onzichtbaar achter de afsluitende oproep. In de hero wordt de cirkel om het longmeer "geschilderd", daarna verschijnen de tekens. Positie en grootte instelbaar in het CMS (Instellingen → Logo-animatie in de hero). Gemaakt met `npm run logo`.

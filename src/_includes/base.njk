@@ -1,4 +1,4 @@
-{%- from "icons.njk" import icon -%}
+{%- from "icons.njk" import icon, logoMark -%}
 {#- Een eigen SEO-titel is al compleet; alleen een gewone titel krijgt de sitenaam erachter (anders te lang voor Google) -#}
 {%- set pageTitle = seoTitel if seoTitel else (title ~ " | " ~ site.naam if title else site.naam) -%}
 {%- set pageDescription = description or site.omschrijving -%}
@@ -13,7 +13,7 @@
   <meta name="description" content="{{ pageDescription }}">
   <link rel="canonical" href="{{ canonical }}">
   <meta name="theme-color" content="#0a2718">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <meta property="og:type" content="website">
@@ -66,12 +66,8 @@
   <header class="site-header">
     <div class="wrap site-header__inner">
       <a class="logo" href="/" aria-label="{{ site.naam }}, naar de homepage">
-        {%- if site.logo %}
-        <img src="{{ site.logo }}" alt="{{ site.naam }}" width="180" height="46">
-        {%- else %}
-        <span class="logo__icon">{{ icon("lung") }}</span>
+        {{ logoMark(site) }}
         <span class="logo__text"><span class="logo__small">Ademwerk</span><span class="logo__name">{{ site.coach }}</span></span>
-        {%- endif %}
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hoofdmenu"><span></span><span class="sr-only">Menu</span></button>
       <nav class="nav" id="hoofdmenu" aria-label="Hoofdmenu">
@@ -93,8 +89,8 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="logo" href="/">
-            <span class="logo__icon">{{ icon("lung") }}</span>
+          <a class="logo logo--footer" href="/">
+            {{ logoMark(site) }}
             <span class="logo__text"><span class="logo__small">Ademwerk</span><span class="logo__name">{{ site.coach }}</span></span>
           </a>
           <p>{{ site.slogan }}</p>
