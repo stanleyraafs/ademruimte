@@ -98,7 +98,7 @@ Front matter voor `page.njk`:
   - **Pagina's**: Wat is ademwerk en Over Stanley. De `layout` en `permalink` staan als verborgen velden
   - **Instellingen & homepage**: `site.json` en `home.json`
 - Media gaan naar `src/assets/uploads/` en worden gepubliceerd als `/assets/uploads/`.
-- **Backend:** `github`, met `repo: stanleyraafs/ademwerk` en branch `main`. Voor het inloggen is een GitHub OAuth-provider nodig; op Netlify is dat *Access & security → OAuth → Install provider → GitHub*. Wie via het CMS bewerkt, heeft schrijfrechten op de repo nodig.
+- **Backend:** `github`, met `repo: stanleyraafs/ademruimte` en branch `main`. Voor het inloggen is een GitHub OAuth-provider nodig; op Netlify is dat *Access & security → OAuth → Install provider → GitHub*. Wie via het CMS bewerkt, heeft schrijfrechten op de repo nodig.
 - **Lokaal:** met `local_backend: true` start je `npx decap-server` (poort 8081) naast `npm run dev` en open je `/admin/`. Wijzigingen worden dan direct naar de bestanden geschreven.
 - **Nieuw veld nodig?** Voeg het toe aan het databestand **én** aan `config.yml`. Een veld dat niet in de config staat, is niet bewerkbaar voor de klant.
 - Bekende eigenaardigheid: een directe deeplink naar een bestand in *Instellingen* laadt soms lege velden. Open eerst de collectie en pas dan het bestand. Sla in dat geval niets op.

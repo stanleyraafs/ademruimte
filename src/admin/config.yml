@@ -2,7 +2,7 @@
 # De inhoud staat in de GitHub-repo hieronder; wijzigingen via het CMS worden daar commits.
 backend:
   name: github
-  repo: stanleyraafs/ademwerk
+  repo: stanleyraafs/ademruimte
   branch: main
   commit_messages:
     create: "Nieuw: {{collection}} {{slug}}"

@@ -28,13 +28,13 @@ Alle foto's worden bij het bouwen automatisch omgezet naar AVIF/WebP/JPEG in mee
 
 ## Online zetten (gratis hosting op Netlify)
 
-1. De code staat in de GitHub-repository [`stanleyraafs/ademwerk`](https://github.com/stanleyraafs/ademwerk).
+1. De code staat in de GitHub-repository [`stanleyraafs/ademruimte`](https://github.com/stanleyraafs/ademruimte).
 2. Maak op [netlify.com](https://www.netlify.com/) een site aan vanuit die repository. De build-instellingen staan al in `netlify.toml`.
 3. Koppel het eigen domein in Netlify onder *Domain management*.
 4. Stel het inloggen voor het CMS in:
    - Maak op GitHub een OAuth-app aan (*Settings → Developer settings → OAuth Apps*) met als callback-URL `https://api.netlify.com/auth/done`.
    - Ga in Netlify naar *Site configuration → Access & security → OAuth*, kies *Install provider → GitHub* en vul de Client ID en het Secret in.
-5. `src/admin/config.yml` wijst al naar `stanleyraafs/ademwerk`. Pas dit alleen aan als de repo verhuist.
+5. `src/admin/config.yml` wijst al naar `stanleyraafs/ademruimte`. Pas dit alleen aan als de repo verhuist.
 6. Pas in het CMS (of in `site.json`) het websiteadres aan als het domein anders is.
 
 Daarna logt Stanley in op `https://<domein>/admin/` met een GitHub-account dat schrijfrechten heeft op de repo. Elke wijziging staat binnen ±1 minuut automatisch live.

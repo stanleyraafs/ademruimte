@@ -55,7 +55,7 @@ Bevestigd door de eigenaar: achternaam **Raafs**, e-mailadres **Stanley.raafs@gm
 
 ## Online zetten
 
-De code staat in de **publieke** repo [`stanleyraafs/ademwerk`](https://github.com/stanleyraafs/ademwerk). `.gitignore` sluit `_notes/` uit (daar staan het intake-transcript en de AI-originelen), net als `node_modules/` en `_site/`. `src/admin/config.yml` wijst al naar deze repo.
+De code staat in de **publieke** repo [`stanleyraafs/ademruimte`](https://github.com/stanleyraafs/ademruimte). `.gitignore` sluit `_notes/` uit (daar staan het intake-transcript en de AI-originelen), net als `node_modules/` en `_site/`. `src/admin/config.yml` wijst al naar deze repo.
 
 De site staat live op Netlify: <https://precious-begonia-26d629.netlify.app/>. Netlify publiceert elke commit op `main` automatisch; pull requests krijgen een deploy preview.
 
