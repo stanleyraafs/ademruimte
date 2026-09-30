@@ -5,6 +5,8 @@
   const media = hero && hero.querySelector(".hero__media");
   const img = media && media.querySelector("img");
   if (!img || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  // Databesparing aan: geen WebGL, de foto met CSS-mist blijft staan
+  if (navigator.connection && navigator.connection.saveData) return;
 
   const canvas = document.createElement("canvas");
   canvas.className = "hero__canvas";
@@ -165,6 +167,8 @@
   }
 
   const coarse = window.matchMedia("(pointer: coarse)").matches;
+  // Telefoons en tablets: 30 beelden per seconde. De mist beweegt traag, dus je ziet het verschil niet; de batterij wel.
+  const minFrameMs = coarse ? 32 : 0;
   let quality = 1; // zakt automatisch als het apparaat het niet bijhoudt
 
   function resize() {
@@ -206,6 +210,10 @@
   function frame(now) {
     raf = 0;
     if (!visible) return;
+    if (ready && last && now - last < minFrameMs) {
+      raf = requestAnimationFrame(frame);
+      return;
+    }
     if (ready) {
       // Adaptieve kwaliteit: bij aanhoudend trage frames de resolutie verlagen
       if (last && document.visibilityState === "visible") {

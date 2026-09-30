@@ -71,8 +71,13 @@ Nog te doen, alleen op aanwijzing van de eigenaar:
 ## Mogelijke volgende stappen
 
 - De hero-WebGL testen op echte telefoons (iOS Safari en Android Chrome), zowel de framerate als de batterij. Headless testen gebeurt alleen met software-rendering.
-- Een `apple-touch-icon` en een PNG-favicon toevoegen. Nu is er alleen `favicon.svg`.
-- Een eigen og:image van 1200×630 maken, met logo en tekst.
 - Een sectie met reviews en eventueel een pagina met een agenda voor de groepssessies.
-- Een eenvoudige privacyverklaring. Er zijn geen formulieren of cookies, maar het staat professioneel.
+- Als het logo binnen is: `npm run social` aanpassen en opnieuw draaien (deelafbeelding en app-icoon).
+- Lettertypes: Fraunces "full" (121 KB) is nodig voor de assen SOFT en WONK uit het ontwerp. Een lichtere variant kan alleen als het ontwerp mag veranderen.
+
+## Toegevoegd op 30 september 2026
+
+- Privacyverklaring op `/privacy/` (link in de footer, beheerbaar in het CMS). **Laten nakijken door de eigenaar**, vooral de passage over vertrouwelijkheid tijdens sessies.
+- Deelafbeelding voor social media (`src/assets/img/deelafbeelding.jpg`) en app-icoon (`src/apple-touch-icon.png`), gemaakt met `npm run social`.
+- Hero op telefoons en tablets: WebGL op 30 fps; bij databesparing geen WebGL.
 - Na het lezen van de huisstijl: fonts en kleuren eventueel aanpassen.
