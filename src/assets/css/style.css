@@ -806,11 +806,14 @@ em {
   gap: 0.9rem;
   padding: 1.4rem 1.2rem 1.2rem;
   border-radius: 28px;
-  background: rgba(5, 23, 13, 0.32);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* Transparant vlak; de gouden rand is een aparte laag (::before), anders schijnt het goud door het vlak */
+  --kaart: rgba(5, 23, 13, 0.14);
+  border: 0;
+  background: var(--kaart);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   color: #fff;
+  text-shadow: 0 1px 10px rgba(5, 23, 13, 0.55);
   font: inherit;
   text-align: center;
   cursor: pointer;
@@ -818,8 +821,21 @@ em {
   transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.4s ease, box-shadow 0.4s ease;
   animation: hero-in 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s both;
 }
+/* Gouden rand in hetzelfde verloop als de knop "Gratis kennismaking" */
+.adem::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #f0d48a 0%, var(--gold-400) 45%, var(--gold-500) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
 .adem:hover {
-  background: rgba(5, 23, 13, 0.45);
+  --kaart: rgba(5, 23, 13, 0.26);
 }
 .adem:focus-visible {
   outline: 2px solid var(--gold-400);
@@ -941,7 +957,7 @@ em {
 }
 .hero.is-oefenen .adem {
   transform: scale(1.15);
-  background: rgba(5, 23, 13, 0.55);
+  --kaart: rgba(5, 23, 13, 0.3);
   box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6);
 }
 
