@@ -197,11 +197,16 @@
     mouse.ty = ((e.clientY - r.top) / r.height) * 2 - 1;
   });
 
-  // Zelfde ritme als de CSS-ademhaling: 4 s in, 6 s uit
+  // Zelfde ritme als de CSS-ademhaling (boxbreathing: 4 s in, 4 vast, 4 uit, 4 vast),
+  // gerekend vanaf het begin van de cyclus dat adem.js doorgeeft
   const ease = (x) => 0.5 - 0.5 * Math.cos(Math.PI * x);
-  function breath(ms) {
-    const phase = (ms / 1000) % 10;
-    return phase < 4 ? ease(phase / 4) : 1 - ease((phase - 4) / 6);
+  function breath(now) {
+    const ms = now - (window.ademStart || 0);
+    const phase = (((ms / 1000) % 16) + 16) % 16;
+    if (phase < 4) return ease(phase / 4);
+    if (phase < 8) return 1;
+    if (phase < 12) return 1 - ease((phase - 8) / 4);
+    return 0;
   }
 
   let visible = true;

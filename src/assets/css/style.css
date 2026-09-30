@@ -62,7 +62,7 @@
   --gutter: clamp(1.25rem, 4vw, 2.5rem);
   --section: clamp(4.5rem, 10vw, 8rem);
 
-  --breath: 10s; /* 4s in, 6s uit */
+  --breath: 16s; /* boxbreathing: 4s in, 4s vast, 4s uit, 4s vast */
 }
 
 /* ---------- basis ---------- */
@@ -596,14 +596,18 @@ em {
 .hero.has-gl .hero__mist {
   display: none;
 }
-/* De foto "ademt": 4 tellen in, 6 tellen uit */
+/* De foto "ademt" mee in boxbreathing: 4 tellen in, 4 vast, 4 uit, 4 vast */
 @keyframes hero-breathe {
   0% {
     transform: scale(1);
+    animation-timing-function: ease-in-out;
   }
-  40% {
+  25%,
+  50% {
     transform: scale(1.045);
+    animation-timing-function: ease-in-out;
   }
+  75%,
   100% {
     transform: scale(1);
   }
@@ -743,7 +747,6 @@ em {
 }
 
 /* Tekst komt bij het laden rustig binnen */
-.hero__grid .breath,
 .hero__grid .eyebrow,
 .hero__grid h1,
 .hero__text,
@@ -775,89 +778,171 @@ em {
   }
 }
 
-/* Adem-mee indicator */
-.breath {
+/* Adem mee: het logo rechts van de longen ademt in boxbreathing.
+   Inademen: de enso wordt geschilderd (--kop). Uitademen: de streek verdwijnt in dezelfde richting (--staart).
+   De tekens in het midden kloppen op een hartslag. Tikken start een begeleide oefening (adem.js). */
+@property --kop {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --staart {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.hero__content {
+  transition: opacity 0.8s ease;
+}
+.adem {
+  position: absolute;
+  z-index: 2;
+  top: 24%;
+  right: clamp(1.5rem, 6vw, 7rem);
+  width: 13rem;
   display: flex;
-  width: fit-content;
+  flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 1.4rem;
-  padding: 0.5rem 1rem 0.5rem 0.6rem;
-  border-radius: 999px;
-  background: rgba(5, 23, 13, 0.35);
+  gap: 0.9rem;
+  padding: 1.4rem 1.2rem 1.2rem;
+  border-radius: 28px;
+  background: rgba(5, 23, 13, 0.32);
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: #fff;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  transform-origin: 100% 30%;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.4s ease, box-shadow 0.4s ease;
+  animation: hero-in 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s both;
 }
-.breath__dot {
+.adem:hover {
+  background: rgba(5, 23, 13, 0.45);
+}
+.adem:focus-visible {
+  outline: 2px solid var(--gold-400);
+  outline-offset: 4px;
+}
+.adem__logo {
   position: relative;
-  width: 26px;
-  height: 26px;
-  display: grid;
-  place-items: center;
+  width: 112px;
+  height: 112px;
+  flex: none;
 }
-.breath__dot::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--fresh-400) 0 35%, rgba(134, 217, 154, 0.25) 36% 100%);
-  animation: breath-dot var(--breath) ease-in-out infinite;
+.adem__logo > span {
+  position: absolute;
+  inset: 0;
+  background: var(--sand-100);
+  -webkit-mask: var(--mark) center / contain no-repeat;
+  mask: var(--mark) center / contain no-repeat;
 }
-@keyframes breath-dot {
+/* Specifieker dan .adem__logo > span, anders wint het gewone masker en ademt de ring niet */
+.adem__logo > .adem__ring {
+  -webkit-mask: var(--mark) center / contain no-repeat,
+    conic-gradient(from 195deg, transparent calc(var(--staart) - 1deg), #000 calc(var(--staart) + 24deg), #000 var(--kop), transparent calc(var(--kop) + 24deg));
+  -webkit-mask-composite: source-in;
+  mask: var(--mark) center / contain no-repeat,
+    conic-gradient(from 195deg, transparent calc(var(--staart) - 1deg), #000 calc(var(--staart) + 24deg), #000 var(--kop), transparent calc(var(--kop) + 24deg));
+  mask-composite: intersect;
+  animation: adem-ring var(--breath) linear infinite;
+}
+/* Zonder logo in lagen: een eenvoudige cirkel */
+.adem__ring--leeg {
+  --mark: radial-gradient(circle, transparent 58%, #000 60% 68%, transparent 70%);
+}
+.adem__tekens {
+  animation: hartslag 1.1s ease-in-out infinite;
+}
+@keyframes adem-ring {
   0% {
-    transform: scale(0.45);
+    --kop: -24deg;
+    --staart: -48deg;
+    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
   }
-  40% {
+  25%,
+  50% {
+    --kop: 384deg;
+    --staart: -48deg;
+    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  }
+  75%,
+  100% {
+    --kop: 384deg;
+    --staart: 384deg;
+  }
+}
+/* Hartslag: dubbele klop, ongeveer 55 slagen per minuut */
+@keyframes hartslag {
+  0%,
+  28%,
+  56%,
+  100% {
     transform: scale(1);
   }
-  100% {
-    transform: scale(0.45);
+  14% {
+    transform: scale(1.12);
+  }
+  42% {
+    transform: scale(1.06);
   }
 }
-.breath__words {
-  position: relative;
-  display: inline-grid;
-  min-width: 5.5em;
+.adem__tekst {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
 }
-.breath__words span {
-  grid-area: 1 / 1;
+.adem__fase {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  line-height: 1.1;
+  min-height: 1.1em;
+  font-variation-settings: "SOFT" 100;
+}
+.adem__tel {
+  min-height: 1.2em;
+  font-size: 0.95rem;
   font-weight: 600;
-  animation: breath-in var(--breath) ease-in-out infinite;
+  letter-spacing: 0.3em;
+  color: var(--fresh-400);
 }
-.breath__words span + span {
-  animation-name: breath-out;
+.adem__label {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
 }
-@keyframes breath-in {
-  0%,
-  36% {
-    opacity: 1;
-  }
-  42%,
-  96% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+.adem__hint {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sand-300);
 }
-@keyframes breath-out {
-  0%,
-  36% {
-    opacity: 0;
+/* Lage schermen (laptops): compacter en hoger, zodat de kaart de tekst niet raakt */
+@media (max-height: 820px) and (min-aspect-ratio: 4/5) {
+  .adem {
+    top: 18%;
+    width: 11.5rem;
+    gap: 0.6rem;
+    padding: 1rem 1rem 0.9rem;
   }
-  42%,
-  94% {
-    opacity: 1;
+  .adem__logo {
+    width: 80px;
+    height: 80px;
   }
-  100% {
-    opacity: 0;
+  .adem__fase {
+    font-size: 1.25rem;
   }
 }
-.breath__label {
-  color: rgba(255, 255, 255, 0.6);
+/* Tijdens de oefening: de rest van de hero stapt terug */
+.hero.is-oefenen .hero__content {
+  opacity: 0.12;
+}
+.hero.is-oefenen .adem {
+  transform: scale(1.15);
+  background: rgba(5, 23, 13, 0.55);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 860px) {
@@ -890,8 +975,39 @@ em {
     background: linear-gradient(180deg, rgba(5, 23, 13, 0.6) 0, rgba(5, 23, 13, 0) 90px);
   }
   .hero__content {
-    padding-top: calc(86vw + 1rem);
+    padding-top: calc(86vw + 10.5rem);
     padding-bottom: 3.5rem;
+  }
+  /* Staand scherm: geen ruimte naast de longen, dus liggend onder de foto */
+  .adem {
+    top: calc(86vw + 0.5rem);
+    left: var(--gutter);
+    right: var(--gutter);
+    width: auto;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0.8rem 1.1rem 0.8rem 0.9rem;
+    text-align: left;
+    transform-origin: 50% 0;
+  }
+  .adem__logo {
+    width: 72px;
+    height: 72px;
+  }
+  .adem__tekst {
+    align-items: flex-start;
+  }
+  .adem__fase {
+    font-size: 1.2rem;
+  }
+  .adem__label {
+    margin-top: 0.1rem;
+  }
+  .adem__hint {
+    letter-spacing: 0.06em;
+  }
+  .hero.is-oefenen .adem {
+    transform: scale(1.04);
   }
   .hero__mist::after {
     display: none;
@@ -1169,10 +1285,12 @@ em {
 }
 @keyframes feit-breathe {
   0%,
+  75%,
   100% {
     transform: scale(1);
   }
-  40% {
+  25%,
+  50% {
     transform: scale(1.03);
   }
 }
@@ -1905,5 +2023,13 @@ a.contact-card:hover {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+  .adem__logo > .adem__ring {
+    -webkit-mask: var(--mark) center / contain no-repeat;
+    mask: var(--mark) center / contain no-repeat;
+    animation: none !important;
+  }
+  .adem__tekens {
+    animation: none !important;
   }
 }

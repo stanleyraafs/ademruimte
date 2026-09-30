@@ -6,6 +6,19 @@
     "tekst": "Loop je vast, ben je overspannen of zit je tegen een burn-out aan? Met verbonden ademwerk help ik je uit je hoofd en terug in je lijf, zodat er weer ruimte komt om te voelen, te ontspannen en op te laden.",
     "knop": "Plan je gratis kennismaking"
   },
+  "adem": {
+    "label": "adem even mee",
+    "start": "Boxbreathing · tik om mee te doen",
+    "stop": "Tik om te stoppen",
+    "fases": [
+      "Adem in",
+      "Houd vast",
+      "Adem uit",
+      "Houd vast"
+    ],
+    "rondes": 4,
+    "klaar": "Goed gedaan. Voel je het verschil?"
+  },
   "herkenning": {
     "titel": "Herken je dit?",
     "punten": [

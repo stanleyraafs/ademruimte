@@ -266,6 +266,18 @@ collections:
               - { label: "Kop (de 2e regel wordt groen; gebruik Enter)", name: titel, widget: text }
               - { label: Tekst, name: tekst, widget: text }
               - { label: Knoptekst, name: knop, widget: string }
+          - label: Adem mee (logo in de hero)
+            name: adem
+            widget: object
+            collapsed: true
+            hint: "Boxbreathing: 4 tellen in, 4 vast, 4 uit, 4 vast. Tikken start een begeleide oefening."
+            fields:
+              - { label: Tekst onder het logo, name: label, widget: string }
+              - { label: Uitnodiging, name: start, widget: string }
+              - { label: Tekst tijdens de oefening, name: stop, widget: string }
+              - { label: "Fasen (in, vast, uit, vast)", name: fases, widget: list, field: { label: Fase, name: fase, widget: string } }
+              - { label: Aantal rondes, name: rondes, widget: number, value_type: int, default: 4 }
+              - { label: Tekst na afloop, name: klaar, widget: string }
           - label: Herken je dit?
             name: herkenning
             widget: object

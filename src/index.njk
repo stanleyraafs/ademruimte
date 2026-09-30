@@ -22,14 +22,28 @@ eleventyComputed:
   <div class="hero__shade" aria-hidden="true"></div>
   <div class="hero__spores" aria-hidden="true"></div>
 
+  {#- Adem mee: het logo ademt in boxbreathing (4 in, 4 vast, 4 uit, 4 vast); tikken start een begeleide oefening (adem.js) -#}
+  {%- set lagen = site.logoLagen %}
+  <button class="adem" type="button" aria-pressed="false" data-fases="{{ home.adem.fases | join('|') }}" data-klaar="{{ home.adem.klaar }}" data-start="{{ home.adem.start }}" data-stop="{{ home.adem.stop }}" data-rondes="{{ home.adem.rondes or 4 }}">
+    <span class="adem__logo" aria-hidden="true">
+      {%- if lagen and lagen.ring and lagen.tekens %}
+      <span class="adem__ring" style="--mark: url('{{ lagen.ring }}')"></span>
+      <span class="adem__tekens" style="--mark: url('{{ lagen.tekens }}')"></span>
+      {%- else %}
+      <span class="adem__ring adem__ring--leeg"></span>
+      {%- endif %}
+    </span>
+    <span class="adem__tekst">
+      <span class="adem__fase" aria-live="polite"></span>
+      <span class="adem__tel" aria-hidden="true"></span>
+      <span class="adem__label">{{ home.adem.label }}</span>
+      <span class="adem__hint">{{ home.adem.start }}</span>
+    </span>
+  </button>
+
   <div class="hero__content">
     <div class="wrap hero__grid">
       <div>
-        <div class="breath" aria-hidden="true">
-          <span class="breath__dot"></span>
-          <span class="breath__words"><span>Adem in…</span><span>Adem uit…</span></span>
-          <span class="breath__label">adem even mee</span>
-        </div>
         <span class="eyebrow hero__eyebrow">{{ home.hero.boventitel }}</span>
         <h1 id="hero-titel">
           {%- set regels = home.hero.titel.split("\n") -%}
@@ -211,4 +225,5 @@ eleventyComputed:
 
 {% include "cta.njk" %}
 
+<script src="/assets/js/adem.js" defer></script>
 <script src="/assets/js/hero.js" defer></script>
