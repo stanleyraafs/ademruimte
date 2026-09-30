@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Ademwerk Stanley Raafs
+   Ademruimte Stanley Raafs
    ========================================================================== */
 
 @font-face {
@@ -372,6 +372,54 @@ em {
   width: 64px;
   height: 64px;
 }
+/* Logo in lagen: eerst de enso als kwaststreek, dan de tekens vanuit het midden.
+   Alleen met de klasse logo-anim op <html> (zie het script in base.njk); anders staat het logo er meteen. */
+@property --enso-p {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.logo__mark--lagen {
+  position: relative;
+  background: none;
+  -webkit-mask: none;
+  mask: none;
+}
+.logo__mark--lagen > span {
+  position: absolute;
+  inset: 0;
+  background: var(--sand-100);
+  -webkit-mask: var(--mark) center / contain no-repeat;
+  mask: var(--mark) center / contain no-repeat;
+}
+.logo-anim .logo__ring {
+  -webkit-mask: var(--mark) center / contain no-repeat, conic-gradient(from 195deg, #000 var(--enso-p), transparent calc(var(--enso-p) + 24deg));
+  -webkit-mask-composite: source-in;
+  mask: var(--mark) center / contain no-repeat, conic-gradient(from 195deg, #000 var(--enso-p), transparent calc(var(--enso-p) + 24deg));
+  mask-composite: intersect;
+  animation: enso-draw 1.8s cubic-bezier(0.5, 0.05, 0.3, 1) 0.3s both;
+}
+.logo-anim .logo__tekens {
+  animation: enso-tekens 1s cubic-bezier(0.2, 0.7, 0.2, 1) 1.9s both;
+}
+@keyframes enso-draw {
+  from {
+    --enso-p: -24deg;
+  }
+  to {
+    --enso-p: 360deg;
+  }
+}
+@keyframes enso-tekens {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 .nav {
   display: flex;
   align-items: center;
@@ -532,81 +580,6 @@ em {
 .hero__media img {
   object-fit: cover;
   object-position: 50% 55%;
-}
-/* Enso om het longmeer: wordt met een penseelstreek "geschilderd" en ademt daarna mee met de foto.
-   Positie rekent object-fit: cover na (foto 3:2, object-position 50% 55%); x, y en grootte in % van de foto. */
-@property --enso-p {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-.hero__media {
-  container-type: size;
-  --ratio: 1.5;
-  --pos-y: 0.55;
-}
-.hero__enso {
-  --dw: max(100cqw, 100cqh * var(--ratio));
-  --dh: calc(var(--dw) / var(--ratio));
-  position: absolute;
-  z-index: 1;
-  left: calc((100cqw - var(--dw)) * 0.5 + var(--dw) * var(--x) / 100);
-  top: calc((100cqh - var(--dh)) * var(--pos-y) + var(--dh) * var(--y) / 100);
-  width: calc(var(--dw) * var(--d) / 100);
-  aspect-ratio: 1;
-  translate: -50% -50%;
-  filter: drop-shadow(0 0 22px rgba(5, 23, 13, 0.45));
-  pointer-events: none;
-}
-.hero__enso span {
-  position: absolute;
-  inset: 0;
-  background: var(--sand-100);
-}
-.hero__enso .hero__enso-ring {
-  opacity: 0.88;
-  -webkit-mask: var(--ring) center / contain no-repeat, conic-gradient(from 195deg, #000 var(--enso-p), transparent calc(var(--enso-p) + 16deg));
-  -webkit-mask-composite: source-in;
-  mask: var(--ring) center / contain no-repeat, conic-gradient(from 195deg, #000 var(--enso-p), transparent calc(var(--enso-p) + 16deg));
-  mask-composite: intersect;
-  animation: enso-draw 3.2s cubic-bezier(0.5, 0.05, 0.3, 1) 0.6s both;
-}
-.hero__enso .hero__enso-tekens {
-  -webkit-mask: var(--tekens) center / contain no-repeat;
-  mask: var(--tekens) center / contain no-repeat;
-  background: linear-gradient(180deg, var(--sand-100), var(--sand-300));
-  animation: enso-tekens 2.4s ease-out 3.1s both;
-}
-@keyframes enso-draw {
-  from {
-    --enso-p: -16deg;
-  }
-  to {
-    --enso-p: 360deg;
-  }
-}
-@keyframes enso-tekens {
-  from {
-    opacity: 0;
-    filter: blur(6px);
-    transform: translateY(2%);
-  }
-  to {
-    opacity: 0.8;
-    filter: blur(0);
-    transform: none;
-  }
-}
-/* Staande foto op smalle schermen (zelfde media query als de <source> in heroPicture) */
-@media (max-aspect-ratio: 4/5) {
-  .hero__media {
-    --ratio: 0.6667;
-  }
-  .hero__enso {
-    left: calc((100cqw - var(--dw)) * 0.5 + var(--dw) * var(--x-m) / 100);
-    top: calc((100cqh - var(--dh)) * var(--pos-y) + var(--dh) * var(--y-m) / 100);
-    width: calc(var(--dw) * var(--d-m) / 100);
-  }
 }
 /* WebGL-laag: rollende mist en levend water (zie hero.js) */
 .hero__canvas {
@@ -1914,8 +1887,5 @@ a.contact-card:hover {
   .reveal {
     opacity: 1;
     transform: none;
-  }
-  .hero__enso span {
-    animation-delay: 0s !important;
   }
 }

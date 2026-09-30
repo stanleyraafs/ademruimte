@@ -28,6 +28,15 @@
   <link rel="preload" href="/assets/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
+  <script>
+    // Logo laten ontstaan: altijd op de homepage, elders alleen op de eerste pagina van een bezoek
+    try {
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && (location.pathname === "/" || !sessionStorage.getItem("logoGezien"))) {
+        document.documentElement.classList.add("logo-anim");
+        sessionStorage.setItem("logoGezien", "1");
+      }
+    } catch (e) {}
+  </script>
 
   <script type="application/ld+json">
   {
@@ -66,8 +75,8 @@
   <header class="site-header">
     <div class="wrap site-header__inner">
       <a class="logo" href="/" aria-label="{{ site.naam }}, naar de homepage">
-        {{ logoMark(site) }}
-        <span class="logo__text"><span class="logo__small">Ademwerk</span><span class="logo__name">{{ site.coach }}</span></span>
+        {{ logoMark(site, true) }}
+        <span class="logo__text"><span class="logo__small">{{ site.merk }}</span><span class="logo__name">{{ site.coach }}</span></span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hoofdmenu"><span></span><span class="sr-only">Menu</span></button>
       <nav class="nav" id="hoofdmenu" aria-label="Hoofdmenu">
@@ -91,7 +100,7 @@
         <div class="footer-brand">
           <a class="logo logo--footer" href="/">
             {{ logoMark(site) }}
-            <span class="logo__text"><span class="logo__small">Ademwerk</span><span class="logo__name">{{ site.coach }}</span></span>
+            <span class="logo__text"><span class="logo__small">{{ site.merk }}</span><span class="logo__name">{{ site.coach }}</span></span>
           </a>
           <p>{{ site.slogan }}</p>
         </div>

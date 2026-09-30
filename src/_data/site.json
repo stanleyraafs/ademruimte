@@ -1,5 +1,6 @@
 {
-  "naam": "Ademwerk Stanley Raafs",
+  "merk": "Ademruimte",
+  "naam": "Ademruimte Stanley Raafs",
   "coach": "Stanley Raafs",
   "rol": "Resetcoach & ademcoach",
   "slogan": "Resetcoach en somatisch ademwerk in Beesel. Terug naar rust, terug in je lijf, terug naar jezelf.",
@@ -17,16 +18,9 @@
   "betalenKort": "Betaling uitsluitend contant",
   "betalen": "Je betaalt contant, na afloop van de sessie. Pinnen of betalen via een betaalverzoek is niet mogelijk.",
   "logo": "/assets/img/logo/enso.png",
-  "heroLogo": {
-    "toon": true,
+  "logoLagen": {
     "ring": "/assets/img/logo/enso-ring.png",
-    "tekens": "/assets/img/logo/enso-tekens.png",
-    "x": 50.5,
-    "y": 43,
-    "grootte": 60,
-    "xMobiel": 50,
-    "yMobiel": 35,
-    "grootteMobiel": 92
+    "tekens": "/assets/img/logo/enso-tekens.png"
   },
   "heroFoto": "/assets/img/hero/hero-long-meer.jpg",
   "heroFotoMobiel": "/assets/img/hero/hero-long-meer-staand.jpg",

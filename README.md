@@ -1,4 +1,4 @@
-# Website Ademwerk Stanley Raafs
+# Website Ademruimte Stanley Raafs
 
 Website voor resetcoach en ademcoach Stanley Raafs in Beesel. De site wordt gebouwd met [Eleventy](https://www.11ty.dev/). Beheer gaat via [Decap CMS](https://decapcms.org/) op `/admin/`.
 

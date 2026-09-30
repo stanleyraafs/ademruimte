@@ -19,8 +19,11 @@
 {%- endmacro %}
 
 {#- Beeldmerk uit het CMS (transparante PNG), ingekleurd via CSS-mask; zonder logo het long-icoon -#}
-{% macro logoMark(site) -%}
-{%- if site.logo -%}
+{#- lagen=true: cirkel en tekens apart, zodat het logo in de header geanimeerd kan ontstaan -#}
+{% macro logoMark(site, lagen=false) -%}
+{%- if lagen and site.logoLagen and site.logoLagen.ring and site.logoLagen.tekens -%}
+<span class="logo__icon logo__mark logo__mark--lagen" aria-hidden="true"><span class="logo__ring" style="--mark: url('{{ site.logoLagen.ring }}')"></span><span class="logo__tekens" style="--mark: url('{{ site.logoLagen.tekens }}')"></span></span>
+{%- elif site.logo -%}
 <span class="logo__icon logo__mark" style="--mark: url('{{ site.logo }}')" aria-hidden="true"></span>
 {%- else -%}
 <span class="logo__icon">{{ icon("lung") }}</span>

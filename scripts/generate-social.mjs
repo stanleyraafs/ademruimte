@@ -43,7 +43,7 @@ const og = `<!doctype html><meta charset="utf-8"><style>${fonts}
 </style>
 <div class="foto"></div><div class="schaduw"></div>
 <div class="tekst">
-  <div class="merk">${merk}<span>Ademwerk</span></div>
+  <div class="merk">${merk}<span>${esc(site.merk || "Ademwerk")}</span></div>
   <h1>Even op reset.<em>Terug naar je adem.</em></h1>
   <p>${esc(site.coach)} · ${esc(site.rol)} in ${esc(site.plaats)}</p>
   <div class="knop">Gratis kennismaking</div>

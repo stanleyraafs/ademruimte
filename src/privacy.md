@@ -4,8 +4,8 @@ title: Privacyverklaring
 kruimel: Privacy
 boventitel: Privacy
 intro: "Je privacy is belangrijk. Hier lees je welke gegevens ik gebruik, waarvoor en wat je rechten zijn. Kort gezegd: deze website verzamelt niets over je, en wat je mij vertelt, gebruik ik alleen om je te helpen."
-seoTitel: Privacyverklaring | Ademwerk Stanley Raafs
-description: Lees hoe Ademwerk Stanley Raafs in Beesel omgaat met je gegevens. Geen cookies, geen tracking en geen formulieren.
+seoTitel: Privacyverklaring | Ademruimte Stanley Raafs
+description: Lees hoe Ademruimte Stanley Raafs in Beesel omgaat met je gegevens. Geen cookies, geen tracking en geen formulieren.
 permalink: /privacy/
 ---
 

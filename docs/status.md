@@ -78,4 +78,5 @@ Nog te doen, alleen op aanwijzing van de eigenaar:
 - Deelafbeelding voor social media (`src/assets/img/deelafbeelding.jpg`) en app-icoon (`src/apple-touch-icon.png`), gemaakt met `npm run social`.
 - Hero op telefoons en tablets: WebGL op 30 fps; bij databesparing geen WebGL.
 - Na het lezen van de huisstijl: fonts en kleuren eventueel aanpassen.
-- Logo (enso met tekens) in header, footer, favicon, app-iconen, deelafbeelding en groot en bijna onzichtbaar achter de afsluitende oproep. In de hero wordt de cirkel om het longmeer "geschilderd", daarna verschijnen de tekens. Positie en grootte instelbaar in het CMS (Instellingen → Logo-animatie in de hero). Gemaakt met `npm run logo`.
+- Logo (enso met tekens) in header, footer, favicon, app-iconen, deelafbeelding en groot en bijna onzichtbaar achter de afsluitende oproep. In de header ontstaat het logo naast de naam: eerst de enso als kwaststreek, dan de tekens vanuit het midden (altijd op de homepage, elders alleen op de eerste pagina van een bezoek). Gemaakt met `npm run logo`.
+- Merknaam gewijzigd van Ademwerk naar **Ademruimte** (`site.merk`, `site.naam`). De repo en het domein heten nog `ademwerk`.
