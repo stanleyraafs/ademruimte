@@ -4,7 +4,7 @@ Dit is de website van **Ademruimte Stanley Raafs**, resetcoach en begeleider van
 
 **Status:** alle pagina's zijn af en lokaal getest. De code staat in de **publieke** repo [`stanleyraafs/ademruimte`](https://github.com/stanleyraafs/ademruimte) (branch `main`). De site staat **live** op Netlify: <https://precious-begonia-26d629.netlify.app/>. Elke commit op `main` gaat automatisch live, ook wijzigingen die via het CMS worden opgeslagen. Deploy of koppel diensten niet zonder expliciete opdracht van de eigenaar. Omdat de repo publiek is, commit je nooit persoonlijke notities, transcripten, sleutels of tokens. Wat nog openstaat, staat in [`docs/status.md`](docs/status.md).
 
-**Werkwijze:** commit nooit rechtstreeks op `main` en zet nooit iets live zonder akkoord van de eigenaar. Werk op een aparte branch en open een pull request. De eigenaar bekijkt de wijzigingen (en de Netlify-preview) en geeft akkoord voordat er gemerged wordt.
+**Werkwijze:** commit nooit rechtstreeks op `main` en zet nooit iets live zonder akkoord van de eigenaar. Werk op een aparte branch en open een pull request. De eigenaar bekijkt de wijzigingen (en de Netlify-preview) en geeft akkoord voordat er gemerged wordt. **Uitzondering:** gegevens die de eigenaar zelf aanlevert (telefoonnummer, adres, KvK-nummer e.d.) en het herstellen van een fout die de eigenaar meldt, mogen na bouwen en controleren direct live.
 
 ## Lees dit eerst
 
