@@ -20,7 +20,7 @@ herken:
 voorWie: Voor sleutelfunctionarissen, leidinggevenden en professionals met chronische stressklachten of (dreigende) uitval. Het traject kan preventief worden ingezet, of als onderdeel van verzuimbegeleiding, in afstemming met de bedrijfsarts of casemanager.
 verloopTitel: In drie fasen van overleven naar duurzaam presteren
 verloop:
-  - titel: Nulmeting
+  - titel: Gratis nulmeting
     tekst: Met de CSR-vragenlijst, de CP-test en een HRV-meting brengen we in kaart waar de medewerker staat. Dat is het vertrekpunt, en de maatstaf voor de voortgang.
   - titel: "Fase 1 · week 1–4: roofbouw stoppen"
     tekst: Fysiek herstel via hartcoherentie en ademregulatie. Het zenuwstelsel krijgt de kans om uit de overlevingsstand te komen.
@@ -33,7 +33,7 @@ watKrijgJe:
   - Persoonlijke begeleiding gedurende 12 weken
   - Ademtechnieken die direct op het werk toepasbaar zijn
   - Een Eerste Hulp bij Terugval-plan
-  - Terugkoppeling aan de werkgever zoals vooraf afgesproken, met instemming van de medewerker
+  - Afspraken over terugkoppeling en afstemming met werkgever of bedrijfsarts, per situatie besproken
 ---
 
 Als een sleutelfiguur uitvalt, voelt de hele organisatie dat. Vaak gaat er een lange periode aan vooraf waarin iemand op reserve draait: doorwerken, slecht slapen, steeds minder herstellen.

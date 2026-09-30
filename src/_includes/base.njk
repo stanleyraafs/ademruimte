@@ -134,7 +134,10 @@
             {{ site.adres }}<br>
             {% if site.postcode %}{{ site.postcode }} {% endif %}{{ site.plaats }}
           </address>
+          {#- Zakelijke betalingen zijn niet per se contant -#}
+          {%- if not page.url.startsWith("/zakelijk/") %}
           <p style="margin-top:.8rem">{{ site.betalenKort }}.</p>
+          {%- endif %}
         </div>
       </div>
       <div class="footer-bottom">

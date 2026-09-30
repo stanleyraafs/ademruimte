@@ -197,12 +197,6 @@ collections:
                 fields:
                   - { label: Titel, name: titel, widget: string }
                   - { label: Tekst, name: tekst, widget: text }
-          - label: Vertrouwelijkheid
-            name: vertrouwelijk
-            widget: object
-            fields:
-              - { label: Titel, name: titel, widget: string }
-              - { label: Tekst, name: tekst, widget: text }
           - label: Veelgestelde vragen
             name: faq
             widget: list

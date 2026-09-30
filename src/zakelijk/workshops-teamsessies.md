@@ -34,7 +34,7 @@ watKrijgJe:
   - Praktische ademtechnieken voor acute werkstress
   - Een HRV-biofeedbackdemonstratie
   - Handvatten om het na de sessie vol te houden
-  - Desgewenst een laagdrempelige nulmeting als start
+  - Desgewenst een gratis nulmeting als start
 ---
 
 Werkdruk verdwijnt niet vanzelf. Maar hoe je lichaam ermee omgaat, daar kun je wel iets aan doen. In een workshop ervaart je team hoe stress in het lichaam werkt, en leert iedereen technieken die meteen bruikbaar zijn.

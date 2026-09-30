@@ -3,7 +3,7 @@
   "description": "Biologische stresscoaching en ademtherapie voor MKB-bedrijven in Limburg en Noord-Brabant (Eindhoven, Roermond, Venlo). Individuele trajecten en teamworkshops, onderbouwd met metingen.",
   "regio": "Limburg en Noord-Brabant, met de focus op Eindhoven, Roermond en Venlo",
   "dienstType": "Biologische stresscoaching en ademtherapie",
-  "aanvragen": "Mail of bel voor een vrijblijvend kennismakingsgesprek en een voorstel op maat.",
+  "aanvragen": "Mail of bel voor een vrijblijvend kennismakingsgesprek, een gratis nulmeting en een voorstel op maat.",
   "hero": {
     "boventitel": "Voor organisaties · Limburg & Noord-Brabant",
     "titel": "Van overleven\nnaar duurzaam presteren.",
@@ -26,9 +26,18 @@
     "titel": "Eerst de motor, dan de chauffeur",
     "tekst": "Stress is geen psychologische zwakte, maar een fysiologische ontregeling van het autonome zenuwstelsel. Wie maandenlang op reserve draait, pleegt roofbouw op zijn lichaam. Daar verandert een gesprek alleen weinig aan.\n\nDaarom begint Ademruimte bij de biologie: de **motor**. Pas als het lichaam weer tot rust kan komen, werken we aan gedrag: de **chauffeur**. De adem is daarbij de meest directe ingang tot het zenuwstelsel. En het mooie is: het effect is te meten.",
     "pijlers": [
-      { "titel": "Meten", "tekst": "Objectieve metingen geven een helder startpunt en laten de voortgang zien." },
-      { "titel": "Reguleren", "tekst": "Met ademregulatie en hartcoherentie komt het zenuwstelsel uit de overlevingsstand." },
-      { "titel": "Borgen", "tekst": "Nieuwe gewoonten worden onderdeel van het werk, zodat het effect blijft." }
+      {
+        "titel": "Meten",
+        "tekst": "Objectieve metingen geven een helder startpunt en laten de voortgang zien."
+      },
+      {
+        "titel": "Reguleren",
+        "tekst": "Met ademregulatie en hartcoherentie komt het zenuwstelsel uit de overlevingsstand."
+      },
+      {
+        "titel": "Borgen",
+        "tekst": "Nieuwe gewoonten worden onderdeel van het werk, zodat het effect blijft."
+      }
     ]
   },
   "metingen": {
@@ -36,41 +45,81 @@
     "titel": "Onderbouwd met metingen",
     "intro": "Geen praatsessies op gevoel, maar een aanpak die je kunt volgen. Met drie metingen maken we stress en herstel zichtbaar, aan het begin en tijdens het traject.",
     "items": [
-      { "icoon": "clipboard", "titel": "CSR-vragenlijst", "tekst": "Brengt stressklachten en de mate van ontregeling in kaart. Een helder vertrekpunt voor het traject." },
-      { "icoon": "wind", "titel": "Controle Pauze (CP-test)", "tekst": "Een eenvoudige ademtest die laat zien hoe het ademhalingspatroon ervoor staat. Makkelijk te herhalen om de voortgang te volgen." },
-      { "icoon": "pulse", "titel": "HRV-biofeedback", "tekst": "Hartslagvariabiliteit laat zien hoe het zenuwstelsel reageert. Met biofeedback zie je live wat de adem doet." }
+      {
+        "icoon": "clipboard",
+        "titel": "CSR-vragenlijst",
+        "tekst": "Brengt stressklachten en de mate van ontregeling in kaart. Een helder vertrekpunt voor het traject."
+      },
+      {
+        "icoon": "wind",
+        "titel": "Controle Pauze (CP-test)",
+        "tekst": "Een eenvoudige ademtest die laat zien hoe het ademhalingspatroon ervoor staat. Makkelijk te herhalen om de voortgang te volgen."
+      },
+      {
+        "icoon": "pulse",
+        "titel": "HRV-biofeedback",
+        "tekst": "Hartslagvariabiliteit laat zien hoe het zenuwstelsel reageert. Met biofeedback zie je live wat de adem doet."
+      }
     ]
   },
   "waarom": {
     "titel": "Waarom Ademruimte?",
     "punten": [
-      { "titel": "Ervaring in het MKB", "tekst": "Ik ken de taal, de cultuur en de dynamiek van het bedrijfsleven. Geen zweverig verhaal, maar een aanpak die past bij jullie praktijk." },
-      { "titel": "Biologisch onderbouwd", "tekst": "We werken met metingen zoals de CSR-vragenlijst, de CP-test en HRV-biofeedback, zodat voortgang zichtbaar wordt." },
-      { "titel": "Dichtbij", "tekst": "Actief in Limburg en Noord-Brabant, van Eindhoven tot Roermond en Venlo. Sessies op locatie bij jullie, of in de praktijk in Beesel." }
+      {
+        "titel": "Ervaring in het MKB",
+        "tekst": "Ik ken de taal, de cultuur en de dynamiek van het bedrijfsleven. Geen zweverig verhaal, maar een aanpak die past bij jullie praktijk."
+      },
+      {
+        "titel": "Biologisch onderbouwd",
+        "tekst": "We werken met metingen zoals de CSR-vragenlijst, de CP-test en HRV-biofeedback, zodat voortgang zichtbaar wordt."
+      },
+      {
+        "titel": "Dichtbij",
+        "tekst": "Actief in Limburg en Noord-Brabant, van Eindhoven tot Roermond en Venlo. Sessies op locatie bij jullie, of in de praktijk in Beesel."
+      }
     ]
   },
   "stappen": {
     "titel": "Zo werken we samen",
     "items": [
-      { "titel": "Kennismaking", "tekst": "Een vrijblijvend gesprek met HR, directie of casemanager. Wat speelt er, en wat willen jullie bereiken?" },
-      { "titel": "Nulmeting", "tekst": "Een laagdrempelige start: een meting of een kennismakingsworkshop, zodat helder is waar jullie staan." },
-      { "titel": "Traject of workshop", "tekst": "Een individueel traject van 12 weken, workshops voor het team, of een combinatie. Afgestemd op jullie situatie." },
-      { "titel": "Evaluatie & borging", "tekst": "We meten opnieuw en maken afspraken om terugval te voorkomen, onder meer met een Eerste Hulp bij Terugval-plan." }
+      {
+        "titel": "Kennismaking",
+        "tekst": "Een vrijblijvend gesprek met HR, directie of casemanager. Wat speelt er, en wat willen jullie bereiken?"
+      },
+      {
+        "titel": "Gratis nulmeting",
+        "tekst": "Een laagdrempelige start: een gratis meting, zodat helder is waar jullie staan."
+      },
+      {
+        "titel": "Traject of workshop",
+        "tekst": "Een individueel traject van 12 weken, workshops voor het team, of een combinatie. Afgestemd op jullie situatie."
+      },
+      {
+        "titel": "Evaluatie & borging",
+        "tekst": "We meten opnieuw en maken afspraken om terugval te voorkomen, onder meer met een Eerste Hulp bij Terugval-plan."
+      }
     ]
   },
-  "vertrouwelijk": {
-    "titel": "Vertrouwelijk en in goede afstemming",
-    "tekst": "Wat een medewerker in een traject deelt, blijft vertrouwelijk. De werkgever krijgt alleen de terugkoppeling die vooraf is afgesproken en waar de medewerker mee instemt. Waar dat helpt, stem ik af met de bedrijfsarts of casemanager, altijd met toestemming van de medewerker. Ademtherapie is een aanvulling op, en geen vervanging van, medische of psychologische zorg."
-  },
   "faq": [
-    { "vraag": "Wat kost een traject of workshop?", "antwoord": "Elk voorstel is maatwerk en afhankelijk van het aantal deelnemers, de duur en de locatie. Ik werk met marktconforme tarieven. Na een vrijblijvende kennismaking ontvang je een voorstel op maat." },
-    { "vraag": "Waar vinden de sessies plaats?", "antwoord": "Workshops en teamsessies geef ik op locatie bij jullie organisatie, in de regio Limburg en Noord-Brabant. Individuele sessies kunnen op locatie of in de praktijk in Beesel." },
-    { "vraag": "Krijgen wij als werkgever inzicht in het traject?", "antwoord": "Je krijgt de terugkoppeling die we vooraf samen afspreken, zoals deelname en voortgang op hoofdlijnen, en alleen met instemming van de medewerker. Persoonlijke en medische informatie blijft vertrouwelijk." },
-    { "vraag": "Kan dit samen met de bedrijfsarts of verzuimbegeleiding?", "antwoord": "Ja. Het traject kan preventief worden ingezet, of als onderdeel van verzuimbegeleiding. Met toestemming van de medewerker stem ik af met de bedrijfsarts of casemanager." },
-    { "vraag": "Is dit ook geschikt voor een klein bedrijf?", "antwoord": "Zeker. Ademruimte richt zich juist op het MKB. Een workshop kan al met een klein team, en een individueel traject voor één sleutelfiguur is ook mogelijk." }
+    {
+      "vraag": "Wat kost een traject of workshop?",
+      "antwoord": "Elk voorstel is maatwerk en afhankelijk van het aantal deelnemers, de duur en de locatie. Ik werk met marktconforme tarieven. De kennismaking en de nulmeting zijn gratis; daarna ontvang je een voorstel op maat."
+    },
+    {
+      "vraag": "Waar vinden de sessies plaats?",
+      "antwoord": "Workshops en teamsessies geef ik op locatie bij jullie organisatie, in de regio Limburg en Noord-Brabant. Individuele sessies kunnen op locatie of in de praktijk in Beesel."
+    },
+    {
+      "vraag": "Kan dit samen met de bedrijfsarts of verzuimbegeleiding?",
+      "antwoord": "Ja. Het traject kan preventief worden ingezet, of als onderdeel van verzuimbegeleiding. Hoe we afstemmen met de bedrijfsarts of casemanager, bespreken we per situatie."
+    },
+    {
+      "vraag": "Is dit ook geschikt voor een klein bedrijf?",
+      "antwoord": "Zeker. Ademruimte richt zich juist op het MKB. Een workshop kan al met een klein team, en een individueel traject voor één sleutelfiguur is ook mogelijk."
+    }
   ],
   "cta": {
     "titel": "Samen werken aan duurzame inzetbaarheid?",
-    "tekst": "Plan een vrijblijvend kennismakingsgesprek. Dan bespreken we wat er speelt in jullie organisatie en maak ik een voorstel op maat."
+    "tekst": "Plan een vrijblijvend kennismakingsgesprek en een gratis nulmeting. Dan bespreken we wat er speelt in jullie organisatie en maak ik een voorstel op maat."
   }
 }
