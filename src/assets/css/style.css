@@ -490,9 +490,8 @@ em {
 /* ---------- hero (home) ---------- */
 .hero {
   position: relative;
-  /* vh als terugval; svh daarna, zodat de hero op mobiel niet achter de adresbalk valt */
-  min-height: 100vh;
   min-height: 100svh;
+  min-height: 100vh;
   display: flex;
   align-items: flex-end;
   color: #fff;

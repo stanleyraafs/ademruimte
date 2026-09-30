@@ -14,16 +14,26 @@
   // Mobiel menu
   const toggle = document.querySelector(".nav-toggle");
   if (toggle) {
-    const close = () => {
-      document.body.classList.remove("nav-open");
-      toggle.setAttribute("aria-expanded", "false");
+    // Achter het open menu mag je niet met Tab of een schermlezer in de pagina belanden
+    const behind = document.querySelectorAll("main, .site-footer");
+    const setOpen = (open) => {
+      document.body.classList.toggle("nav-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      behind.forEach((el) => (el.inert = open));
     };
     toggle.addEventListener("click", () => {
-      const open = document.body.classList.toggle("nav-open");
-      toggle.setAttribute("aria-expanded", String(open));
+      const open = !document.body.classList.contains("nav-open");
+      setOpen(open);
+      if (open) document.querySelector(".nav a")?.focus();
     });
-    document.querySelectorAll(".nav a").forEach((a) => a.addEventListener("click", close));
-    document.addEventListener("keydown", (e) => e.key === "Escape" && close());
+    document.querySelectorAll(".nav a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape" || !document.body.classList.contains("nav-open")) return;
+      setOpen(false);
+      toggle.focus();
+    });
+    // Groter scherm (bijv. telefoon gedraaid): menu dicht, pagina weer bereikbaar
+    window.matchMedia("(min-width: 961px)").addEventListener("change", (e) => e.matches && setOpen(false));
   }
 
   // Zwevende lichtdeeltjes in de hero
