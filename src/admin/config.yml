@@ -15,8 +15,8 @@ backend:
 local_backend: true
 
 locale: nl
-site_url: https://www.ademwerkstanleyraafs.nl
-display_url: https://www.ademwerkstanleyraafs.nl
+site_url: https://precious-begonia-26d629.netlify.app
+display_url: https://precious-begonia-26d629.netlify.app
 media_folder: src/assets/uploads
 public_folder: /assets/uploads
 

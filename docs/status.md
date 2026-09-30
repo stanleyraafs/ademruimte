@@ -41,7 +41,7 @@ Bevestigd door de eigenaar: achternaam **Raafs** en e-mailadres **Stanley.raafs@
 | Straatnaam | Bussereindseweg 9 | Uit de spraakopname ("Busser Eindseweg"). **Spelling controleren.** |
 | Plaats | Beesel | De opname zei "Bezel". |
 | Postcode | *(leeg)* | Niet genoemd. |
-| Domein | `https://www.ademwerkstanleyraafs.nl` | Een voorbeeld. Aanpassen in `site.url` en in `src/admin/config.yml` (`site_url` / `display_url`). |
+| Domein | `https://precious-begonia-26d629.netlify.app` | Het Netlify-adres. Bij een eigen domein aanpassen in `site.url` en in `src/admin/config.yml` (`site_url` / `display_url`). |
 | Duur van een losse sessie | "meestal 1,5 à 2 uur, inclusief intake en nagesprek" | Een aanname, gebaseerd op wat in het vak gebruikelijk is. |
 | Groepssessie | prijs "Op aanvraag", duur "2 à 2,5 uur" | Een aanname. De klant noemde alleen €150 per uur. |
 | Details van de sessies | thee, matje, oefening voor thuis, tussentijds contact | Door de maker geschreven voorbeeldteksten. |
@@ -60,10 +60,12 @@ Bevestigd door de eigenaar: achternaam **Raafs** en e-mailadres **Stanley.raafs@
 
 De code staat in de **publieke** repo [`stanleyraafs/ademwerk`](https://github.com/stanleyraafs/ademwerk). `.gitignore` sluit `_notes/` uit (daar staan het intake-transcript en de AI-originelen), net als `node_modules/` en `_site/`. `src/admin/config.yml` wijst al naar deze repo.
 
+De site staat live op Netlify: <https://precious-begonia-26d629.netlify.app/>. Netlify publiceert elke commit op `main` automatisch; pull requests krijgen een deploy preview.
+
 Nog te doen, alleen op aanwijzing van de eigenaar:
 
-1. Een site aanmaken op Netlify vanuit de repo (de instellingen staan in `netlify.toml`) en het domein koppelen.
-2. Een GitHub OAuth-app aanmaken met callback `https://api.netlify.com/auth/done` en die in Netlify installeren als OAuth-provider. Het GitHub-account van Stanley (`stanleyraafs`) is de eigenaar van de repo en kan dus inloggen in het CMS.
+1. Eventueel een eigen domein koppelen (en dan `site.url` aanpassen).
+2. Als dat nog niet gebeurd is: een GitHub OAuth-app aanmaken met callback `https://api.netlify.com/auth/done` en die in Netlify installeren als OAuth-provider. Het GitHub-account van Stanley (`stanleyraafs`) is de eigenaar van de repo en kan dus inloggen in het CMS.
 3. Na livegang de sitemap aanmelden bij Google Search Console en een Google Bedrijfsprofiel aanmaken (lokale SEO).
 
 ## Mogelijke volgende stappen
