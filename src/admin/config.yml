@@ -77,6 +77,10 @@ collections:
         label: Over Stanley
         file: src/over-stanley.md
         fields: *pagina
+      - name: privacy
+        label: Privacyverklaring
+        file: src/privacy.md
+        fields: *pagina
 
   - name: instellingen
     label: Instellingen & homepage

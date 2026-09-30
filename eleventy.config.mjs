@@ -46,6 +46,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/uploads");
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
+  eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
 
   // Zet elke <img> (ook foto's uit het CMS) om naar een geoptimaliseerde <picture>
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
