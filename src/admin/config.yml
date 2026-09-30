@@ -100,6 +100,7 @@ collections:
           - { label: E-mail, name: email, widget: string, required: false }
           - { label: Straat en huisnummer, name: adres, widget: string }
           - { label: Postcode, name: postcode, widget: string, required: false }
+          - { label: KvK-nummer, name: kvk, widget: string, required: false, hint: "Wettelijk verplicht op de website. Staat onderaan elke pagina." }
           - { label: Plaats, name: plaats, widget: string }
           - { label: Werkgebied, name: regio, widget: string }
           - { label: Tarief, name: tarief, widget: string }

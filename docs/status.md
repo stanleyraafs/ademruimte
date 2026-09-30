@@ -50,7 +50,7 @@ Bevestigd door de eigenaar: achternaam **Raafs**, e-mailadres **Stanley.raafs@gm
 - **Portretfoto** voor "Over mij" (`home.over.foto`), eventueel ook foto's van de praktijkruimte.
 - **Persoonlijk verhaal** voor de pagina Over Stanley.
 - **Reviews** zodra die er zijn. Er is nog geen sectie voor; die moet dan gebouwd worden, als CMS-lijst in `home.json` en eventueel per dienst.
-- Het **KvK-nummer**. Een Nederlandse onderneming moet dat op de website vermelden. Voeg dan een veld `kvk` toe aan `site.json`, `config.yml` en de footer.
+- Het **KvK-nummer**: nu staat er een **tijdelijk nummer** (97938645) in `site.kvk`. Vervangen door het echte nummer zodra dat er is (CMS: Instellingen, veld KvK-nummer).
 - Links naar social media, als die er zijn. De velden staan al klaar.
 
 ## Online zetten

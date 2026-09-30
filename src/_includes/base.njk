@@ -132,7 +132,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© {{ "" | year }} {{ site.naam }}</span>
+        <span>© {{ "" | year }} {{ site.naam }}{% if site.kvk %} · KvK {{ site.kvk }}{% endif %}</span>
         <span>Ademwerk is geen vervanging van medische of psychologische zorg.</span>
         <a href="/privacy/">Privacyverklaring</a>
       </div>
