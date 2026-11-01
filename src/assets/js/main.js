@@ -70,3 +70,41 @@
     items.forEach((el) => el.classList.add("is-visible"));
   }
 })();
+
+// Offline-app: na "Zet op beginscherm" werkt de site ook zonder internet (zie src/sw.js)
+(() => {
+  if (!("serviceWorker" in navigator)) return;
+  const melding = document.currentScript && document.currentScript.dataset.offlineMelding;
+  const app = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+    if (!app || !navigator.onLine) return;
+    // In de app: eens per bezoek alles ophalen en bijwerken (alleen wat ontbreekt of veranderd is)
+    try {
+      if (sessionStorage.getItem("offlineOpgehaald")) return;
+      sessionStorage.setItem("offlineOpgehaald", "1");
+    } catch (e) {}
+    navigator.serviceWorker.ready.then((reg) => reg.active && reg.active.postMessage({ type: "alles-ophalen" }));
+  });
+
+  navigator.serviceWorker.addEventListener("message", (e) => {
+    if (!e.data || e.data.type !== "offline-klaar" || !e.data.compleet || !melding) return;
+    try {
+      if (localStorage.getItem("offlineGemeld")) return;
+      localStorage.setItem("offlineGemeld", "1");
+    } catch (err) {
+      return;
+    }
+    const el = document.createElement("p");
+    el.className = "offline-melding";
+    el.setAttribute("role", "status");
+    el.textContent = melding;
+    document.body.append(el);
+    requestAnimationFrame(() => el.classList.add("is-zichtbaar"));
+    setTimeout(() => {
+      el.classList.remove("is-zichtbaar");
+      setTimeout(() => el.remove(), 600);
+    }, 5000);
+  });
+})();

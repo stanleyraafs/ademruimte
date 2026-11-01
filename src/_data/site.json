@@ -16,6 +16,7 @@
   "tarief": "€121 per uur",
   "btw": "inclusief btw",
   "betalenKort": "Betaling uitsluitend contant",
+  "offlineMelding": "Klaar: de site werkt nu ook zonder internet.",
   "betalen": "Je betaalt contant, na afloop van de sessie. Pinnen of betalen via een betaalverzoek is niet mogelijk.",
   "logo": "/assets/img/logo/enso.png",
   "logoLagen": {

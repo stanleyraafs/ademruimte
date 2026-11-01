@@ -236,6 +236,7 @@ collections:
           - { label: Tarief, name: tarief, widget: string }
           - { label: Btw-vermelding, name: btw, widget: string }
           - { label: Betaaltekst kort, name: betalenKort, widget: string, hint: "Korte regel in footer, afsluitende oproep en contactpagina." }
+          - { label: Melding offline-app, name: offlineMelding, widget: string, required: false, hint: "Verschijnt één keer in de app op het beginscherm, zodra alles is opgeslagen voor gebruik zonder internet." }
           - { label: Betaaltekst, name: betalen, widget: text, hint: "Staat overal waar het over betalen gaat." }
           - { label: Logo (optioneel), name: logo, widget: image, required: false, hint: "Transparante PNG; de kleur wordt automatisch aangepast. Leeg laten = long-icoon. Nieuw logo? Laat de ontwikkelaar npm run logo draaien voor de losse lagen en iconen." }
           - label: Logo in losse lagen (animatie naast de naam)

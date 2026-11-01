@@ -1,3 +1,5 @@
+import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { join, relative } from "node:path";
 import markdownIt from "markdown-it";
 import Image, { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
@@ -38,6 +40,32 @@ async function imageUrl(src, width = 1600, format = "webp") {
   return meta[format][0].url;
 }
 
+// Lijst voor de offline-app (src/sw.js): alle pagina's plus alles wat ze laden.
+// Foto's alleen als AVIF en JPEG; de service worker valt zonder AVIF-ondersteuning terug op JPEG.
+function offlineLijst({ dir, results }) {
+  const uit = dir.output;
+  const pad = (bestand) => "/" + relative(uit, bestand).split("\\").join("/");
+  const lijst = new Set(["/", "/manifest.webmanifest", "/favicon-48.png", "/apple-touch-icon.png", "/icon-192.png", "/icon-512.png"]);
+  const teksten = [];
+  for (const r of results) {
+    if (!r.url || r.url.startsWith("/admin") || !/(\/|\.html)$/.test(r.url)) continue;
+    lijst.add(r.url);
+    teksten.push(r.content);
+  }
+  // CSS, JS en fonts altijd; ook wat de CSS zelf laadt (fonts, bladtextuur)
+  const map = (sub) => readdirSync(join(uit, sub), { recursive: true, withFileTypes: true })
+    .filter((d) => d.isFile()).map((d) => pad(join(d.parentPath ?? d.path, d.name)));
+  for (const sub of ["assets/css", "assets/js", "assets/fonts", "assets/img/logo"]) map(sub).forEach((p) => lijst.add(p));
+  for (const p of map("assets/css")) teksten.push(readFileSync(join(uit, p), "utf8"));
+  for (const tekst of teksten) {
+    for (const [p] of tekst.matchAll(/\/(?:img|assets)\/[\w./%-]+\.(?:avif|jpe?g|png|svg|gif|webp|woff2|css|js|pdf)/g)) {
+      if (p.startsWith("/img/") && p.endsWith(".webp")) continue;
+      lijst.add(p);
+    }
+  }
+  writeFileSync(join(uit, "offline.json"), JSON.stringify({ bestanden: [...lijst].sort() }));
+}
+
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/fonts");
   eleventyConfig.addPassthroughCopy("src/assets/css");
@@ -48,7 +76,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
   eleventyConfig.addPassthroughCopy("src/favicon-48.png");
+  eleventyConfig.addPassthroughCopy("src/icon-192.png");
   eleventyConfig.addPassthroughCopy("src/icon-512.png");
+  eleventyConfig.addPassthroughCopy("src/sw.js");
   eleventyConfig.addPassthroughCopy("src/assets/img/logo");
 
   // Zet elke <img> (ook foto's uit het CMS) om naar een geoptimaliseerde <picture>
@@ -64,6 +94,7 @@ export default function (eleventyConfig) {
     htmlOptions: { imgAttributes: { loading: "lazy", decoding: "async" } },
   });
   eleventyConfig.addAsyncShortcode("heroPicture", heroPicture);
+  eleventyConfig.on("eleventy.after", offlineLijst);
   eleventyConfig.addAsyncShortcode("imageUrl", imageUrl);
 
   const opVolgorde = (a, b) => (a.data.volgorde || 99) - (b.data.volgorde || 99);

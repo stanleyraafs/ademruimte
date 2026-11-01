@@ -84,3 +84,7 @@ Nog te doen, alleen op aanwijzing van de eigenaar:
   - Besluiten eigenaar: zakelijk niet per se contant (footer-regel alleen op particuliere pagina's); vertrouwelijkheid/terugkoppeling per situatie binnen het maatwerktraject; de nulmeting is gratis.
   - Nu met bestaande natuurfoto's; zakelijke foto's (workshop, op locatie) zouden het versterken.
 - **Adem mee in de hero:** rechts van de longen (op mobiel onder de foto) ademt het logo in boxbreathing (4 in, 4 vast, 4 uit, 4 vast): de enso wordt bij inademen geschilderd en verdwijnt bij uitademen, de tekens kloppen op een hartslag. Tikken start een begeleide oefening van 4 rondes (`src/assets/js/adem.js`). De foto en de WebGL-mist ademen in hetzelfde ritme. Teksten in het CMS (Homepage → Adem mee).
+
+## Toegevoegd op 1 november 2026
+
+- **Offline-app:** de site is te installeren op tablet en telefoon (iPad: deelknop → "Zet op beginscherm"; Android: menu → "App installeren"). Open de app één keer met internet; daarna werken alle pagina's, foto's en lettertypes ook zonder internet. Met internet haalt de app vanzelf de nieuwste versie op. Zonder internet werken "Route plannen" en het CMS niet. De melding na het opslaan staat in het CMS (Instellingen → Melding offline-app).

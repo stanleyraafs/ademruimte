@@ -146,6 +146,16 @@ Front matter voor `page.njk`:
 | Rimpelsterkte | `disp * 0.0035` | |
 | Glinsteringen | `smoothstep(0.6, 0.88, sp)` en de intensiteit | |
 
+## Offline-app (`src/sw.js`)
+
+De site is installeerbaar (`src/manifest.njk`, iconen 192 en 512 uit `npm run logo`) en werkt daarna zonder internet.
+
+- Na elke build schrijft `offlineLijst` in `eleventy.config.mjs` het bestand `_site/offline.json`: alle pagina's, CSS, JS, fonts, logo en de foto's die de pagina's gebruiken (alleen AVIF en JPEG).
+- `main.js` registreert de service worker. Alleen in de geïnstalleerde app (`display-mode: standalone`) vraagt hij eens per bezoek om alles op te halen; gewone bezoekers downloaden dus niets extra's.
+- Pagina's: eerst internet, anders de bewaarde versie (onbekende pagina's krijgen `404.html`). Foto's en fonts: eerst het geheugen. Ontbreekt een fotovariant, dan pakt de service worker dezelfde foto in een andere breedte of als JPEG.
+- `/admin/` blijft buiten de service worker.
+- Testen: `npm run build` en daarna `_site` statisch serveren. De dev-server gebruikt andere afbeeldings-URL's, dus daar klopt de offline-lijst niet.
+
 ## Hosting en deploy
 
 - **Netlify:** build `npm run build`, publish `_site`, Node 22. Cache-headers voor `/img/*` en de fonts staan in `netlify.toml`. De 404 komt uit `_site/404.html`.

@@ -1,7 +1,7 @@
 // Zet het logo (zwarte inkt op papier) om naar transparante beeldmerken.
 // De inkt wordt het alfakanaal, zodat de kleur met CSS (mask-image) te kiezen is.
 // Uitvoer: enso.png (compleet), enso-ring.png en enso-tekens.png (los, voor de hero-animatie),
-// plus favicon en app-iconen (src/favicon-48.png, src/apple-touch-icon.png, src/icon-512.png).
+// plus favicon en app-iconen (src/favicon-48.png, src/apple-touch-icon.png, src/icon-192.png, src/icon-512.png).
 import sharp from "sharp";
 
 const SRC = process.argv[2] || "_notes/logo/logo-origineel.jpg";
@@ -102,6 +102,7 @@ async function icoon(size, naam) {
     .toFile(naam);
 }
 await icoon(180, "src/apple-touch-icon.png");
+await icoon(192, "src/icon-192.png");
 await icoon(512, "src/icon-512.png");
 await icoon(48, "src/favicon-48.png");
 
