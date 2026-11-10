@@ -30,3 +30,15 @@
   for = "/assets/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Installatiebestand van de app: browsers verwachten dit bestandstype
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+
+# De service worker altijd vers ophalen, zodat updates van de app direct doorkomen
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
