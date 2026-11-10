@@ -2,14 +2,14 @@
 title: Losse ademsessie
 volgorde: 1
 kort: Eén op één, met volle aandacht voor jou. Voor een eerste reset, of om te voelen wat ademwerk met je doet.
-prijs: €150 per uur
+prijs: €121 per uur
 prijsNotitie: inclusief btw · contant te voldoen na afloop
 kaartNotitie: inclusief btw
 duur: Een eerste sessie duurt meestal 1,5 à 2 uur, inclusief intake en nagesprek.
 waar: In mijn praktijk in Beesel
 afbeelding: /assets/img/sfeer/losse-sessie.jpg
 seoTitel: Losse ademsessie in Beesel | Somatisch ademwerk één op één
-description: Een individuele sessie somatisch, verbonden ademwerk in Beesel. Voor rust in je hoofd, ontlading van spanning en weer contact met je lijf. €150 per uur, inclusief btw.
+description: Een individuele sessie somatisch, verbonden ademwerk in Beesel. Voor rust in je hoofd, ontlading van spanning en weer contact met je lijf. €121 per uur, inclusief btw.
 herken:
   - Je voelt dat er iets moet veranderen, maar weet niet goed waar je moet beginnen.
   - Je zit vol spanning of emotie die er maar niet uit wil.

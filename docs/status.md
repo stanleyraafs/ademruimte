@@ -40,7 +40,7 @@ Bevestigd door de eigenaar: achternaam **Raafs**, e-mailadres **Stanley.raafs@gm
 |---|---|---|
 | Domein | `https://precious-begonia-26d629.netlify.app` | Het Netlify-adres. Bij een eigen domein aanpassen in `site.url` en in `src/admin/config.yml` (`site_url` / `display_url`). |
 | Duur van een losse sessie | "meestal 1,5 à 2 uur, inclusief intake en nagesprek" | Een aanname, gebaseerd op wat in het vak gebruikelijk is. |
-| Groepssessie | prijs "Op aanvraag", duur "2 à 2,5 uur" | Een aanname. De klant noemde alleen €150 per uur. |
+| Groepssessie | prijs "Op aanvraag", duur "2 à 2,5 uur" | Een aanname. De klant noemde alleen het uurtarief (nu €121 per uur, eerder €150). |
 | Details van de sessies | thee, matje, oefening voor thuis, tussentijds contact | Door de maker geschreven voorbeeldteksten. |
 | "Over mij" | algemene tekst over zijn aanpak | Bewust **geen** verzonnen biografie. Het persoonlijke verhaal moet van Stanley komen. |
 

@@ -2,7 +2,7 @@
 title: Persoonlijk traject op maat
 volgorde: 3
 kort: Een traject dat helemaal is afgestemd op jou. Voor blijvende verandering bij burn-out, overspannenheid of trauma.
-prijs: €150 per uur
+prijs: €121 per uur
 prijsNotitie: inclusief btw · aantal sessies in overleg · contant te voldoen
 kaartNotitie: inclusief btw · aantal sessies in overleg
 duur: Aantal sessies, duur en frequentie stemmen we samen af.

@@ -33,7 +33,7 @@ Draai `npm run build` **niet** terwijl `npm run dev` loopt. Twee processen die t
 - **Taal en toon:** Nederlands, de **jij-vorm**, warm, persoonlijk en nuchter. Geen zweverige taal.
 - **Twee doelgroepen:** particulieren (de homepage en `/aanbod/`) en organisaties/MKB (`/zakelijk/`). Het zakelijke deel is biologische stresscoaching en ademtherapie, met metingen (CSR-vragenlijst, CP-test, HRV-biofeedback), zakelijker van toon en zonder de melding over contant betalen.
 - **Positionering:** *resetcoach*. De site richt zich op mensen die vastlopen, overspannen zijn, in of tegen een burn-out zitten, en op traumaverwerking. Ademwerk is "voor iedereen", maar de focus ligt hierop.
-- **Tarief:** €150 per uur, inclusief btw.
+- **Tarief:** €121 per uur, inclusief btw.
 - **Alleen contant betalen.** Dit moet **expliciet** op de site staan. De tekst komt uit `site.betalen`.
 - **Boeken gaat via bellen, appen of mailen.** Dus **geen** WhatsApp-knop, **geen** contactformulier en **geen** Calendly of ander boekingssysteem. De klant heeft dit expliciet afgewezen.
 - **Hoofd-CTA:** *gratis kennismakingsgesprek*.

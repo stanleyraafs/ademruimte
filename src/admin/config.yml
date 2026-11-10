@@ -35,7 +35,7 @@ collections:
       - { label: Naam, name: title, widget: string }
       - { label: Volgorde, name: volgorde, widget: number, value_type: int, default: 9 }
       - { label: Korte omschrijving (op de kaart), name: kort, widget: text }
-      - { label: Prijs, name: prijs, widget: string, hint: "Bijv. €150 per uur of Op aanvraag" }
+      - { label: Prijs, name: prijs, widget: string, hint: "Bijv. €121 per uur of Op aanvraag" }
       - { label: Toelichting bij prijs, name: prijsNotitie, widget: string, hint: "Bijv. inclusief btw · contant te voldoen na afloop" }
       - { label: Toelichting op de kaart (kort), name: kaartNotitie, widget: string, required: false, hint: "Korte versie voor de aanbodkaart, bijv. inclusief btw. Leeg = toelichting bij prijs." }
       - { label: Duur, name: duur, widget: string, required: false }
